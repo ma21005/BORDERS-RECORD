@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import SideMenu from "./components/SideMenu";
+import Main from "./components/Main";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen">
+      {/* サイドメニュー */}
+      <aside className="overflow-y-auto">
+        <SideMenu />
+      </aside>
+      {/* メインコンテンツ */}
+      <div className="flex-1 overflow-x-hidden overflow-y-auto">
+        <main>
+          <Main />
+        </main>
+      </div>
     </div>
   );
 }

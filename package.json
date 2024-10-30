@@ -38,5 +38,10 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://ma21005.github.io/BORDERS-RECORD/"
+  "homepage": "https://ma21005.github.io/BORDERS-RECORD/",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
+  }
 }

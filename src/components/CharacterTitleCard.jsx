@@ -1,6 +1,6 @@
-export default function CharacterCard({ character }) {
+export default function CharacterTitleCard({ character }) {
   return (
-    <div className="border p-4 m-2 rounded shadow">
+    <div className="rounded-xl border-4 w-full max-w-[320px] mx-auto">
       <h2 className="text-lg font-bold">{character.名前}</h2>
       <p>部隊: {character.部隊}</p>
       <p>ポジション: {character.ポジション}</p>

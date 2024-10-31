@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div className="h-full w-64 border-8">
+    <div className="h-full w-full border-8">
       <h2>
         検索
       </h2>

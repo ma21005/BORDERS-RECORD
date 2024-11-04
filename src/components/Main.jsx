@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
-import CharacterTitleCard from './CharacterTitleCard';
-import CharacterDetailCard from './CharacterDetailCard';
-import CharacterStatusCard from './CharacterStatusCard';
-import CharacterTriggerCard from './CharacterTriggerCard';
+import CharacterTitleCard from './Card/CharacterTitleCard';
+import CharacterDetailCard from './Card/CharacterDetailCard';
+import CharacterStatusCard from './Card/CharacterStatusCard';
+import CharacterTriggerCard from './Card/CharacterTriggerCard';
 
 // クリックで切り替わるカードタイプ
 const characterCardTypes = [
@@ -26,6 +26,11 @@ export default function Main() {
       // activeCardIndex = キャラクター数と同じサイズで全要素が0の配列
       // data.length = 3の場合は [0, 0, 0]
       setActiveCardIndex(new Array(data.length).fill(0));
+
+      // ローディング完了直後にカードをクリックしてカードタイプを変更すると
+      // 最初の CharacterTitleCard に戻る現象が起きるのでローディング完了前に2秒のスリープを挟む
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       setLoading(false); // ローディング完了
     };
 
@@ -54,7 +59,7 @@ export default function Main() {
 
   return (
     <div className='p-2'>
-      <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 p-2'>
+      <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 p-2'>
         {charactersData.map((character, index) => {
 
           // 各キャラクターのカードタイプ
@@ -62,7 +67,7 @@ export default function Main() {
           const ActiveCradType = characterCardTypes[activeCardIndex[index]];
 
           return (
-            <div key={index} onClick={() => handleCardClick(index)} className='cursor-pointer'>
+            <div key={index} onClick={() => handleCardClick(index)} className='cursor-pointer h-full w-full'>
               <ActiveCradType character={character} />
             </div>
           );

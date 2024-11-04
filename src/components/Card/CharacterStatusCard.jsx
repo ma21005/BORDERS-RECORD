@@ -1,3 +1,4 @@
+import CardContainer from "./CardContainer";
 import StatusGraph from "./StatusGraph";
 
 export default function CharacterStatusCard({ character }) {
@@ -14,7 +15,7 @@ export default function CharacterStatusCard({ character }) {
   ];
 
   return (
-    <div className="rounded-xl border-4 w-full max-w-[320px] mx-auto">
+    <CardContainer>
       <h2 className="text-lg font-bold">{character.名前}</h2>
       <StatusGraph status={status}/>
       <p>トリオン: {character.トリオン}</p>
@@ -25,6 +26,6 @@ export default function CharacterStatusCard({ character }) {
       <p>射程: {character.射程}</p>
       <p>指揮: {character.指揮}</p>
       <p>特殊戦術: {character.特殊戦術}</p>
-    </div>
+    </CardContainer>
   );
 }

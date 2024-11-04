@@ -17,7 +17,7 @@ export default function CharacterDetailCard({ character }) {
       <p>機動: {character.機動}</p>
       <p>技術: {character.技術}</p>
       <p>射程: {character.射程}</p>
-      <p>援護: {character.援護}</p>
+      <p>指揮: {character.指揮}</p>
       <p>特殊戦術: {character.特殊戦術}</p>
       <p>メイン1: {character.メイン1}</p>
       <p>メイン2: {character.メイン2}</p>

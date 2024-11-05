@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden main-container">
       {/* サイドメニュー */}
       <aside className="hidden lg:block w-80 flex-shrink-0 overflow-y-auto">
         <SideMenu />

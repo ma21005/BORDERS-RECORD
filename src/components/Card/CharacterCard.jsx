@@ -3,7 +3,6 @@ import CharacterTitleCard from "./CharacterTitleCard";
 import React, { useState } from 'react';
 import CharacterTriggerCard from "./CharacterTriggerCard";
 import CharacterDetailCard from "./CharacterDetailCard";
-import '../../App.css';
 
 export default function CharacterCard({ character }) {
   const characterCardTypes = [
@@ -29,8 +28,8 @@ export default function CharacterCard({ character }) {
   const CurrentCard = characterCardTypes[currentCardIndex].component; // 現在のカードコンポーネント
 
   return (
-    <div onClick={handleCardFlip} className='cursor-pointer h-full w-full'>
-      <div className={`w-full h-full ${isFlipping ? "flip-card" : ""}`}>
+    <div onClick={handleCardFlip} className='relative cursor-pointer w-96 h-96'>
+      <div className={`absolute w-full h-full ${isFlipping ? "flip-card" : ""}`}>
         {/* 現在のカードコンポーネントを動的にレンダリング */}
         <CurrentCard character={character} />
       </div>

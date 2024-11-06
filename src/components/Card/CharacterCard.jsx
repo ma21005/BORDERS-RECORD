@@ -28,7 +28,7 @@ export default function CharacterCard({ character }) {
   const CurrentCard = characterCardTypes[currentCardIndex].component; // 現在のカードコンポーネント
 
   return (
-    <div onClick={handleCardFlip} className='relative cursor-pointer w-96 h-96'>
+    <div onClick={handleCardFlip} className='relative cursor-pointer w-full h-full'>
       <div className={`absolute w-full h-full ${isFlipping ? "flip-card" : ""}`}>
         {/* 現在のカードコンポーネントを動的にレンダリング */}
         <CurrentCard character={character} />

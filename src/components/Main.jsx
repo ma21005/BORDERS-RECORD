@@ -29,7 +29,7 @@ export default function Main() {
           {charactersData.map((character, index) => {
 
             return (
-              <div key={index}>
+              <div key={index} className='w-80 h-80'>
                 <CharacterCard character={character} />
               </div>
             );

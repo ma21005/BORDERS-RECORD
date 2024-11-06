@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="flex h-screen overflow-hidden main-container">
       {/* サイドメニュー */}
-      <aside className="hidden lg:block w-80 flex-shrink-0 overflow-y-auto">
+      <aside className="hidden lg:block w-96 flex-shrink-0 overflow-y-auto">
         <SideMenu />
       </aside>
       {/* メインコンテンツ */}

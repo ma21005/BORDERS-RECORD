@@ -24,15 +24,17 @@ export default function Main() {
 
   return (
     <div className='p-2'>
-      <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 p-2'>
-        {charactersData.map((character, index) => {
+      <div className='flex justify-center'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 p-2'>
+          {charactersData.map((character, index) => {
 
-          return (
-            <div key={index} className="w-full h-full">
-              <CharacterCard character={character} />
-            </div>
-          );
-        })}
+            return (
+              <div key={index}>
+                <CharacterCard character={character} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

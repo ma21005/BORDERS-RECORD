@@ -11,8 +11,8 @@ export default function CharacterTriggerCard({ character }) {
     <CardContainer>
       <h2 className="text-lg font-bold">{character.名前}</h2>
       
-      <div className="trigger-container w-full flex bg-white">
-        <div className="sub-trigge w-[47.5%] bg-yellow-400 m-[1%] p-1">
+      <div className="trigger-container w-full h-[85%] flex bg-white">
+        <div className="sub-trigge w-[47.5%] h-full bg-yellow-400 m-[1%] p-1">
           <p>SUB</p>
           {subTrigger.map((trigger, index) => 
             trigger === "なし" ? (
@@ -22,7 +22,7 @@ export default function CharacterTriggerCard({ character }) {
             )
           )}
         </div>
-        <div className="main-trigger w-[47.5%] bg-orange-900 m-[1%] p-1">
+        <div className="main-trigger w-[47.5%] h-full bg-orange-900 m-[1%] p-1">
           <p>MAIN</p>
           {mainTrigger.map((trigger, index) => 
             trigger === "なし" ? (

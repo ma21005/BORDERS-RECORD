@@ -8,10 +8,10 @@ const CustomLabel = ({ x, y, payload, data }) => {
 
   return (
     <g>
-      <text x={x} y={y} textAnchor="middle" fill="#666" fontSize={14} fontWeight="bold">
+      <text x={x} y={y} textAnchor="middle" fill="white" fontSize={14} fontWeight="bold">
         {payload.value} {/* 項目名を表示 */}
       </text>
-      <text x={x} y={y + 15} textAnchor="middle" fill="#666" fontSize={14}>
+      <text x={x} y={y + 15} textAnchor="middle" fill="white" fontSize={18}>
         {value} {/* 各項目の値を表示 */}
       </text>
     </g>
@@ -44,12 +44,18 @@ export default function StatusGraph({ status }) {
           <Radar
             name="Stats"
             dataKey="value"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
+            stroke="#e3df68"
+            fill="#e3df68"
+            fillOpacity={0.7}
           />
         </RadarChart>
       </ResponsiveContainer>
+
+      {/* <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+        {status.map((character, index) => (
+          <p key={index}>{character.name}: {character.value}</p>
+        ))}
+      </div> */}
     </div>
   );
 }

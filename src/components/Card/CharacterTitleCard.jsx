@@ -14,7 +14,7 @@ export default function CharacterTitleCard({ character }) {
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="character-name-container mt-1.5">
+      <div style={{ padding: '3px 0' }} className="character-name-container mt-1.5">
         <h1 className="text-3xl font-bold text-center text-white">{character.名前}</h1>
       </div>
     </CardContainer>

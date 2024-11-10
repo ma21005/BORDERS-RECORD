@@ -16,8 +16,10 @@ export default function CharacterStatusCard({ character }) {
 
   return (
     <CardContainer>
-      <h2 className="text-lg font-bold">{character.名前}</h2>
-      <div className="h-[80%]">
+      <div className="h-[10%] character-name-container mt-2 mb-1">
+        <p className="text-lg font-bold text-center text-white">{character.名前}</p>
+      </div>
+      <div className="h-[85%]">
         <StatusGraph status={status}/>
       </div>
     </CardContainer>

@@ -19,7 +19,7 @@ export default function MainTrigger({ trigger }) {
           <p>{triggerType}</p>
         </div>
         <div className="mt-0.5 text-xs text-white font-bold whitespace-nowrap">
-          <p>{trigger}eeeeeeeee</p>
+          <p>{trigger}</p>
         </div>
       </div>
     </div>

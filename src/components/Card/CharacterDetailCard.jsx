@@ -1,34 +1,46 @@
 import CardContainer from "./CardContainer";
 
 export default function CharacterDetailCard({ character }) {
+  // 誕生日を日本の日付フォーマットで表示させる
+  const formatBirthday = (characterBirthday) => {
+    if (characterBirthday === '不明') {
+      return characterBirthday
+    }
+    const birthday = new Date(characterBirthday);
+    return birthday.toLocaleDateString("ja-JP", {
+      month: "long", // 月名をフル表示（例: "6月"）
+      day: "numeric", // 日を表示（例: "12"）
+    });
+  };
+
+  const detailColumn = [
+    { label: "組織", value: character.組織 },
+    { label: "部隊", value: character.部隊 },
+    { label: "ポジション", value: character.ポジション },
+    { label: "年齢", value: character.年齢 },
+    { label: "誕生日", value: formatBirthday(character.誕生日) },
+    { label: "身長", value: character.身長 },
+    { label: "血液型", value: character.血液型 },
+    { label: "星座", value: character.星座 },
+    { label: "職業", value: character.職業 },
+    { label: "好きなもの", value: character.好きなもの },
+  ];
+
   return (
     <CardContainer>
-      <h2 className="text-lg font-bold">Detail Card</h2>
-      <p>部隊: {character.部隊}</p>
-      <p>ポジション: {character.ポジション}</p>
-      <p>年齢: {character.年齢}</p>
-      <p>誕生日: {character.誕生日}</p>
-      <p>身長: {character.身長} cm</p>
-      <p>血液型: {character.血液型}</p>
-      <p>星座: {character.星座}</p>
-      <p>職業: {character.職業}</p>
-      <p>好きなもの: {character.好きなもの}</p>
-      <p>トリオン: {character.トリオン}</p>
-      <p>攻撃力: {character.攻撃}</p>
-      <p>防御・援護: {character["防御・援護"]}</p>
-      <p>機動: {character.機動}</p>
-      <p>技術: {character.技術}</p>
-      <p>射程: {character.射程}</p>
-      <p>指揮: {character.指揮}</p>
-      <p>特殊戦術: {character.特殊戦術}</p>
-      <p>メイン1: {character.メイン1}</p>
-      <p>メイン2: {character.メイン2}</p>
-      <p>メイン3: {character.メイン3}</p>
-      <p>メイン4: {character.メイン4}</p>
-      <p>サブ1: {character.サブ1}</p>
-      <p>サブ2: {character.サブ2}</p>
-      <p>サブ3: {character.サブ3}</p>
-      <p>サブ4: {character.サブ4}</p>
+      <div className="h-[10%] character-name-container mt-2 mb-1">
+        <p className="text-lg font-bold text-center text-white">{character.名前}</p>
+      </div>
+
+      <div className="detail-container h-[85%] text-white hidden-scrollbar">
+        {detailColumn.map((column, index) => (
+          <div key={index}>
+            <p className="detail-column">
+              <span className="font-bold">{column.label}：</span>{column.value}
+            </p>
+          </div>
+        ))}
+      </div>
     </CardContainer>
   );
 }

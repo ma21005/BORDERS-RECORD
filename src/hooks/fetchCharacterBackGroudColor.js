@@ -2,9 +2,12 @@
 
 const backGroudColor = {
   "玉狛第二" : "#066e91",
-  "アフトクラトル" : "#444444"
+  "アフトクラトル" : "#663366"
 };
 
-export function fetchCharacterBackGroudColor(characterTeam) {
+export function fetchCharacterBackGroudColor(characterTeam, blackTrigger) {
+  if (blackTrigger) {
+    return "#111111"; // 黒トリガーの場合は黒背景
+  }
   return backGroudColor[characterTeam] || "gray";
 }

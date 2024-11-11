@@ -77,23 +77,28 @@ code {
 }
 
 .each-trigger-container {
-  /* --background-color: #090909;
-  --line-color: #222222; */
-
   background-color: #090909;
   border: solid 1px #166f8f;
-  /* background:
-    radial-gradient(circle farthest-side at 0% 50%,var(--background-color) 23.5%,rgba(240,166,17,0) 0)21px 30px,
-    radial-gradient(circle farthest-side at 0% 50%,var(--line-color) 24%,rgba(240,166,17,0) 0)19px 30px,
-    linear-gradient(var(--background-color) 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,var(--background-color) 0)0 0,
-    linear-gradient(150deg,var(--background-color) 24%,var(--line-color) 0,var(--line-color) 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,var(--line-color) 0,var(--line-color) 76%,var(--background-color) 0)0 0,
-    linear-gradient(30deg,var(--background-color) 24%,var(--line-color) 0,var(--line-color) 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,var(--line-color) 0,var(--line-color) 76%,var(--background-color) 0)0 0,
-    linear-gradient(90deg,var(--line-color) 2%,var(--background-color) 0,var(--background-color) 98%,var(--line-color) 0%)0 0 var(--background-color);
-  background-size: 40px 60px; */
 }
 
 .trigger-type {
   font-size: 0.5rem;
   line-height: 0.7rem;
   border-bottom: solid 1px #166f8f;
+}
+
+.detail-container {
+  background-color: #090909;
+  border: solid 2px #166f8f;
+  margin-right: 1.25rem;
+  margin-left: 1.25rem;
+  padding: 0.4rem 0.75rem 0.5rem 0.75rem;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.detail-column {
+  border-bottom: solid 1px #166f8f;
+  display: inline-block;
 }

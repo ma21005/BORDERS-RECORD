@@ -1,6 +1,6 @@
 // トリガーの名前を渡すとそのトリガーの種類を返す
 
-const triggerType = {
+export const triggerType = {
   "ATTACK TRIGGER" : [
     "弧月",
     "スコーピオン",
@@ -8,7 +8,9 @@ const triggerType = {
   ],
   "GUNNER TRIGGER" : [
     "アステロイド",
-    "バイパー"
+    "バイパー",
+    "アステロイド：拳銃",
+    "バイパー：拳銃",
   ],
   "SNIPER TRIGGER" : [
     "アイビス",
@@ -26,7 +28,8 @@ const triggerType = {
     "スパイダー",
     "スラスター",
     "旋空",
-    "鉛弾"
+    "鉛弾",
+    "ダミービーコン(試作)"
   ]
 };
 

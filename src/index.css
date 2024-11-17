@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Shippori+Mincho&display=swap');
+
 /* スクロールバーを非表示にするクラス */
 @layer utilities {
   .hidden-scrollbar {
@@ -101,4 +103,22 @@ code {
 .detail-column {
   border-bottom: solid 1px #166f8f;
   display: inline-block;
+}
+
+.character-comment-container {
+  background-color: #090909;
+  position: relative;
+}
+
+.character-comment {
+  font-family: "Shippori Mincho", serif;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-weight: 400;
 }

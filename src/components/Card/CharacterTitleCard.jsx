@@ -6,12 +6,7 @@ import CharacterComment from './CharacterComment';
 export default function CharacterTitleCard({ character }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  let characterTeam = character.部隊
-  if (characterTeam === '-') {
-    characterTeam = character.組織
-  }
-
-  const characterBackGroudColor = fetchCharacterBackGroudColor(characterTeam, character.黒トリガー);
+  const characterBackGroudColor = fetchCharacterBackGroudColor(character);
 
   let imageName = character.名前
   if (character.黒トリガー && character.名前 === '空閑 遊真') {

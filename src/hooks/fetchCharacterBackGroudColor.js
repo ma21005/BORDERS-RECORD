@@ -11,9 +11,26 @@ const backGroudColor = {
   "アフトクラトル" : "#663366"
 };
 
-export function fetchCharacterBackGroudColor(characterTeam, blackTrigger) {
-  if (blackTrigger) {
-    return "#111111"; // 黒トリガーの場合は黒背景
+export function fetchCharacterBackGroudColor(character) {
+  let characterTeam = character.部隊
+  if (characterTeam === '-') {
+    characterTeam = character.組織
   }
+
+  if (character.黒トリガー) {
+    return "#111111"; // 黒トリガーの場合は黒背景
+  } if (characterTeam === '玉狛第一') { // 玉狛第一はキャラごとに指定
+    switch (character.名前) {
+      case 'h':
+        return "#044974";
+      case 'g':
+        return "#044974";
+      case '烏丸 京介':
+        return "#054a74";
+      default:
+        return "gray";
+    }
+  }
+
   return backGroudColor[characterTeam] || "gray";
 }

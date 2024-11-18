@@ -1,3 +1,5 @@
+// キャラクターカードのステータス画面にあたるコンポーネント
+
 import CardContainer from "./CardContainer";
 import StatusGraph from "./StatusGraph";
 

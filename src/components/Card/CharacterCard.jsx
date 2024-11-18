@@ -3,6 +3,7 @@ import CharacterTitleCard from "./CharacterTitleCard";
 import React, { useState } from 'react';
 import CharacterTriggerCard from "./CharacterTriggerCard";
 import CharacterDetailCard from "./CharacterDetailCard";
+import CharacterCardBack from "./CharacterCardBack";
 
 export default function CharacterCard({ character }) {
   const characterCardTypes = [
@@ -28,10 +29,14 @@ export default function CharacterCard({ character }) {
   const CurrentCard = characterCardTypes[currentCardIndex].component; // 現在のカードコンポーネント
 
   return (
-    <div onClick={handleCardFlip} className='relative cursor-pointer w-full h-full'>
-      <div className={`absolute w-full h-full ${isFlipping ? "flip-card" : ""}`}>
-        {/* 現在のカードコンポーネントを動的にレンダリング */}
-        <CurrentCard character={character} />
+    <div onClick={handleCardFlip} className="relative cursor-pointer w-full h-full">
+      <div className={`absolute w-full h-full ${isFlipping ? 'flip-card' : ''}`}>
+        {/* フリップ中なら専用のカードを表示、それ以外は通常のカード */}
+        {isFlipping ? (
+          <CharacterCardBack /> // フリップ中に表示するコンポーネント
+        ) : (
+          <CurrentCard character={character} />
+        )}
       </div>
     </div>
   );

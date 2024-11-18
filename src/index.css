@@ -76,7 +76,6 @@ code {
 .main-trigger-container, .sub-trigger-container {
   background-color: #090909;
   border: solid 2px #166f8f;
-  overflow-y: auto;
 }
 
 .each-trigger-container {

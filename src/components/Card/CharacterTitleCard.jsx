@@ -1,3 +1,5 @@
+// キャラクターカードのタイトル画面にあたるコンポーネント
+
 import React, { useState } from 'react';
 import CardContainer from "./CardContainer";
 import  { fetchCharacterBackGroudColor } from "../../hooks/fetchCharacterBackGroudColor";

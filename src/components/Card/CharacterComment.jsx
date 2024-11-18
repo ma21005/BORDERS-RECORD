@@ -1,3 +1,6 @@
+// キャラクターカードのタイトル画面にある画像をホバーした場合に呼び出される
+// 画像を変化させ、各キャラクターのセリフを表示させる
+
 import React from 'react';
 
 export default function CharacterComment({ character }) {

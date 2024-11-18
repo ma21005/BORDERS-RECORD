@@ -1,3 +1,5 @@
+// キャラクターカードの詳細情報画面にあたるコンポーネント
+
 import CardContainer from "./CardContainer";
 
 export default function CharacterDetailCard({ character }) {

@@ -8,6 +8,8 @@ export function getImageName(trigger) {
     return "拳銃";
   } else if (trigger.includes("突撃銃")) {
     return "突撃銃";
+  }else if (trigger.includes("機関砲")) {
+    return "機関砲";
   }
   return optionTrigger.includes(trigger) ? "オプション" : trigger;
 }

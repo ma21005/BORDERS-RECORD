@@ -122,3 +122,11 @@ code {
   text-orientation: upright;
   font-weight: 400;
 }
+
+.hoge {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;  /* Chrome, Safari */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* Internet Explorer/Edge */
+  user-select: none;          /* Modern browsers */
+}

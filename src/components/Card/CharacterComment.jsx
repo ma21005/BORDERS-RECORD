@@ -33,7 +33,7 @@ export default function CharacterComment({ character }) {
           src={`https://borders-records.s3.ap-northeast-1.amazonaws.com/characters/${imageName}.png`}
           alt={`${imageName}`}
           style={{ filter: "url(#solid-color-filter)" }}
-          className="object-cover w-full h-full"
+          className="image-protect object-cover w-full h-full"
         />
 
         {/* キャラクターごとのセリフに<br>が含まれる場合は改行して表示させる */}

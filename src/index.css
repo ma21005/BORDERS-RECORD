@@ -39,6 +39,23 @@ code {
   }
 }
 
+.side-menu-container {
+  background-color: #090909;
+  border-right: 3px solid #166f8f;
+  color: white;
+}
+
+.header-container {
+  background-color: #090909;
+  border-bottom: 2px solid #166f8f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: white;
+}
+
 .flip-card {
   animation: flipCard 0.6s ease-in-out;
 }
@@ -124,7 +141,8 @@ code {
 }
 
 /* スマホではキャラクター画像長押しでセリフを表示させたいので、画像長押しによる保存タブの表示をオフ */
-.hoge {
+/* 他の画像にも適用したいので汎用的なクラスにする */
+.image-protect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;  /* Chrome, Safari */
   -moz-user-select: none;     /* Firefox */

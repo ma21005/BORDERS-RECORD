@@ -1,6 +1,6 @@
-export default function Header() {
+export default function SideMenu() {
   return (
-    <div className="h-full w-full border-8">
+    <div className="side-menu-container h-full w-full">
       <h2>
         検索
       </h2>

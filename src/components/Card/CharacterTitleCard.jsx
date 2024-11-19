@@ -33,7 +33,7 @@ export default function CharacterTitleCard({ character }) {
             src={`https://borders-records.s3.ap-northeast-1.amazonaws.com/characters/${imageName}.png`}
             alt={`${character.名前}`}
             style={{ backgroundColor: characterBackGroudColor }}
-            className="hoge object-cover w-full h-full"
+            className="image-protect object-cover w-full h-full"
           />
         )}
       </div>

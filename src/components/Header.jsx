@@ -4,7 +4,7 @@ export default function Header({ setOpen }) {
       {/* ハンバーガーメニューボタン */}
       <button
         className="flex flex-col justify-center items-center p-4 mr-4 space-y-1"
-        onClick={() => setOpen(prevOpen => !prevOpen)} // 状態を反転させる
+        onClick={() => (prevOpen => !prevOpen)} // 状態を反転させる
       >
         <div className="w-8 sm:w-10 h-0.5 bg-white"></div> {/* 上の線 */}
         <div className="w-8 sm:w-10 h-0.5 bg-white"></div> {/* 中央の線 */}

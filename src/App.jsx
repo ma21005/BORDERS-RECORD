@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [searchName, setSearchName] = useState(""); // 検索文字列の状態
 
   return (
     <div className="flex h-screen overflow-hidden main-container">
@@ -16,7 +17,7 @@ function App() {
       {/* サイドメニュー */}
       {open && (
         <div className="w-72 fixed z-30 h-full">
-          <SideMenu />
+          <SideMenu setSearchName={setSearchName} />
         </div>
       )}
 
@@ -25,13 +26,13 @@ function App() {
         className="hidden lg:block flex-shrink-0 overflow-y-auto"
         style={{ width: '28rem' }}
       >
-        <SideMenu />
+        <SideMenu setSearchName={setSearchName} />
       </aside>
       {/* メインコンテンツ */}
       <div className="flex-1 overflow-x-hidden overflow-y-auto pt-14 lg:pt-0">
         <Header setOpen={setOpen} />
         <main>
-          <Main />
+          <Main searchName={searchName} /> {/* 検索文字列をMainへ渡す */}
         </main>
       </div>
     </div>

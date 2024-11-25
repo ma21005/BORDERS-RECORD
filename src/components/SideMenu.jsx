@@ -23,8 +23,8 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
   // ボタンの色を動的に変更するための関数
   const getButtonClass = (trigger) => {
     return filterTriggers.includes(trigger)
-      ? "bg-blue-500 text-white p-2 rounded mb-4" // フィルタリングされていれば青色
-      : "bg-gray-500 text-white p-2 rounded mb-4"; // フィルタリングされていなければ灰色
+      ? "bg-[#166f8f] text-white p-2 rounded mb-4" // フィルタリングされていれば青色
+      : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]"; // フィルタリングされていなければ灰色
   };
 
   return (
@@ -42,8 +42,8 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
       <h2 className="text-sm text-gray-400">ATTACK TRIGGER</h2>
       {attackTriggers.map((trigger, index) => (
         <button
-          key={`attack-${index}`} // indexをキーとして追加
-          className={getButtonClass(trigger)}
+          key={`attack-${index}`}
+          className={`${getButtonClass(trigger)} rounded-xl`}
           onClick={() => handleFilter(trigger)}
         >
           {trigger}
@@ -53,8 +53,8 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
       <h2 className="text-sm text-gray-400">GUNNER TRIGGER</h2>
       {gunnerTriggers.map((trigger, index) => (
         <button
-          key={`gunner-${index}`} // indexをキーとして追加
-          className={getButtonClass(trigger)}
+          key={`gunner-${index}`}
+          className={`${getButtonClass(trigger)} rounded-xl`}
           onClick={() => handleFilter(trigger)}
         >
           {trigger}
@@ -64,8 +64,8 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
       <h2 className="text-sm text-gray-400">SNIPER TRIGGER</h2>
       {sniperTriggers.map((trigger, index) => (
         <button
-          key={`sniper-${index}`} // indexをキーとして追加
-          className={getButtonClass(trigger)}
+          key={`sniper-${index}`}
+          className={`${getButtonClass(trigger)} rounded-xl`}
           onClick={() => handleFilter(trigger)}
         >
           {trigger}
@@ -75,8 +75,8 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
       <h2 className="text-sm text-gray-400">DEFFENSE TRIGGER</h2>
       {deffenseTriggers.map((trigger, index) => (
         <button
-          key={`defense-${index}`} // indexをキーとして追加
-          className={getButtonClass(trigger)}
+          key={`defense-${index}`}
+          className={`${getButtonClass(trigger)} rounded-xl`}
           onClick={() => handleFilter(trigger)}
         >
           {trigger}
@@ -86,8 +86,8 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
       <h2 className="text-sm text-gray-400">OPTION TRIGGER</h2>
       {optionTriggers.map((trigger, index) => (
         <button
-          key={`option-${index}`} // indexをキーとして追加
-          className={getButtonClass(trigger)}
+          key={`option-${index}`}
+          className={`${getButtonClass(trigger)} rounded-xl`}
           onClick={() => handleFilter(trigger)}
         >
           {trigger}

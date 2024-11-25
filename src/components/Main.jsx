@@ -42,8 +42,8 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers })
 
   // その後、AND条件によるフィルタリングを行う
   const filteredCharacters = filteredBySearch.filter((character) => {
-    const mainTrigger = [character.メイン1, character.メイン2, character.メイン3, character.メイン4];
-    const subTrigger = [character.サブ1, character.サブ2, character.サブ3, character.サブ4];
+    const mainTrigger = [ character.メイン1, character.メイン2, character.メイン3, character.メイン4, character.メイン5, character.メイン6, character.メイン7 ];
+    const subTrigger = [ character.サブ1, character.サブ2, character.サブ3, character.サブ4, character.サブ5, character.サブ6, character.サブ7];
 
     // AND条件によるフィルタリング
     return filterTriggers.every((trigger) => {

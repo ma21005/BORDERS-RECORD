@@ -23,7 +23,6 @@ export default function CharacterTriggerCard({ character }) {
       </div>
       
       <div className="w-full h-[83%] flex justify-between">
-        {/* SUB Trigger */}
          {/* レイジのみ縦スクロール可にする */}
         <div
           className={`sub-trigger-container w-[47.5%] h-full ml-[2%] p-1 hidden-scrollbar ${

@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 
-export default function Main({ searchName }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers }) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
+  const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
+  const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
+  const deffenseTriggers = triggerNameAndType["DEFFENSE TRIGGER"];
+  const optionTriggers = triggerNameAndType["OPTION TRIGGER"];
 
   useEffect(() => {
     const loadData = async () => {
@@ -22,12 +28,53 @@ export default function Main({ searchName }) {
     return <p>Now Loading...</p>;
   }
 
-  // 検索文字列に基づいてデータをフィルタリング
-  const filteredCharacters = charactersData.filter((character) =>
-    searchName === "" || // 検索文字列が空の場合は全キャラクターを表示させる
-    character.名前?.toLowerCase().includes(searchName.toLowerCase()) ||
-    character.なまえ?.toLowerCase().includes(searchName.toLowerCase())
-  );
+  // 最初に検索文字列によるフィルタリングを行う
+  const filteredBySearch = charactersData.filter((character) => {
+    // 検索文字列によるフィルタリング
+    if (searchName &&
+      !(character.名前?.toLowerCase().includes(searchName.toLowerCase()) || 
+        character.なまえ?.toLowerCase().includes(searchName.toLowerCase()))
+    ) {
+      return false;
+    }
+    return true; // 検索文字列にマッチしたキャラクターのみ残す
+  });
+
+  // その後、AND条件によるフィルタリングを行う
+  const filteredCharacters = filteredBySearch.filter((character) => {
+    const mainTrigger = [character.メイン1, character.メイン2, character.メイン3, character.メイン4];
+    const subTrigger = [character.サブ1, character.サブ2, character.サブ3, character.サブ4];
+
+    // AND条件によるフィルタリング
+    return filterTriggers.every((trigger) => {
+      if (attackTriggers.includes(trigger)) {
+        return mainTrigger.some((item) => item?.includes(trigger)) ||
+               subTrigger.some((item) => item?.includes(trigger));
+      }
+
+      if (gunnerTriggers.includes(trigger)) {
+        return mainTrigger.some((item) => item?.includes(trigger)) ||
+               subTrigger.some((item) => item?.includes(trigger));
+      }
+
+      if (sniperTriggers.includes(trigger)) {
+        return mainTrigger.some((item) => item?.includes(trigger)) ||
+               subTrigger.some((item) => item?.includes(trigger));
+      }
+
+      if (deffenseTriggers.includes(trigger)) {
+        return mainTrigger.some((item) => item?.includes(trigger)) ||
+               subTrigger.some((item) => item?.includes(trigger));
+      }
+
+      if (optionTriggers.includes(trigger)) {
+        return mainTrigger.some((item) => item?.includes(trigger)) ||
+               subTrigger.some((item) => item?.includes(trigger));
+      }
+
+      return true; // デフォルトですべて表示
+    });
+  });
 
   return (
     <div className='p-2'>

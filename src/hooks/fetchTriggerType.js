@@ -1,6 +1,6 @@
 // トリガーの名前を渡すとそのトリガーの種類を返す
 
-export const triggerType = {
+export const triggerNameAndType = {
   "ATTACK TRIGGER" : [
     "弧月",
     "スコーピオン",
@@ -42,7 +42,7 @@ export const triggerType = {
 };
 
 export function fetchTriggerType(triggerName) {
-  for (const [type, names] of Object.entries(triggerType)) {
+  for (const [type, names] of Object.entries(triggerNameAndType)) {
     if (names.includes(triggerName)) {
       return type;
     }

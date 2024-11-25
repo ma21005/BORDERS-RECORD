@@ -1,7 +1,7 @@
 // APIから取得したトリガー名 と S3に保存されている画像名 の紐付けを行う
-import { triggerType } from './fetchTriggerType';
+import { triggerNameAndType } from './fetchTriggerType';
 
-const optionTrigger = triggerType["OPTION TRIGGER"];
+const optionTrigger = triggerNameAndType["OPTION TRIGGER"];
 
 export function getImageName(trigger) {
   if (trigger.includes("拳銃")) {

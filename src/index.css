@@ -150,3 +150,9 @@ code {
   user-select: none;          /* Modern browsers */
   pointer-events: none;
 }
+
+.filter-item {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #166f8f;
+}

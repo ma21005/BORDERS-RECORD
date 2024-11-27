@@ -90,7 +90,7 @@ code {
   border: solid 2px #222222;
 }
 
-.main-trigger-container, .sub-trigger-container {
+.trigger-container {
   background-color: #090909;
   border: solid 2px #166f8f;
 }

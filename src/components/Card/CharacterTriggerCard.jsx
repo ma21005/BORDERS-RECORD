@@ -4,11 +4,18 @@ import CardContainer from "./CardContainer";
 import MainTrigger from "../Trigger/MainTrigger";
 import SubTrigger from "../Trigger/SubTrigger";
 import FreeTrigger from "../Trigger/FreeTrigger";
+import Uniquetrigger from "../Trigger/UniqueTrigger";
 
 export default function CharacterTriggerCard({ character }) {
   let mainTrigger = [ character.メイン1, character.メイン2, character.メイン3, character.メイン4 ];
   let subTrigger = [ character.サブ1, character.サブ2, character.サブ3, character.サブ4 ];
+  let uniqueTrigger = [character.黒トリガー, character.特殊トリガー];
   let isReiji = false;
+
+  // 通常トリガーかどうかを判定する
+  const hasNormalTrgger = uniqueTrigger.every(trigger => trigger === '');
+  // 通常トリガーではないトリガーの名前
+  const uniqueTriggerName = uniqueTrigger.find(trigger => trigger !== '');
 
   if (character.名前 === "木崎 レイジ") {
     mainTrigger = [ character.メイン1, character.メイン2, character.メイン3, character.メイン4, character.メイン5, character.メイン6, character.メイン7 ];
@@ -22,40 +29,49 @@ export default function CharacterTriggerCard({ character }) {
         <p className="text-lg font-bold text-center text-white">{character.名前}</p>
       </div>
       
-      <div className="w-full h-[83%] flex justify-between">
-         {/* レイジのみ縦スクロール可にする */}
-        <div
-          className={`sub-trigger-container w-[47.5%] h-full ml-[2%] p-1 hidden-scrollbar ${
-            isReiji ? "overflow-y-auto" : ""
-          }`}
-        >
-          <p className="font-bold text-center text-white">SUB</p>
-          {subTrigger.map((trigger, index) => 
-            trigger === "なし" ? (
-              <FreeTrigger key={index}/>
-            ) : (
-              <SubTrigger key={index} trigger={trigger} />
-            )
-          )}
-        </div>
+      {hasNormalTrgger ? (
+        <div className="w-full h-[83%] flex justify-between">
+          {/* SUB Trigger */}
+          {/* レイジのみ縦スクロール可にする */}
+          <div
+            className={`trigger-container w-[47.5%] h-full ml-[2%] p-1 hidden-scrollbar ${
+              isReiji ? "overflow-y-auto" : ""
+            }`}
+          >
+            <p className="font-bold text-center text-white">SUB</p>
+            {subTrigger.map((trigger, index) =>
+              trigger === "なし" ? (
+                <FreeTrigger key={index}/>
+              ) : (
+                <SubTrigger key={index} trigger={trigger} />
+              )
+            )}
+          </div>
 
-        {/* MAIN Trigger */}
-        {/* レイジのみ縦スクロール可にする */}
-        <div
-          className={`main-trigger-container w-[47.5%] h-full mr-[2%] p-1 hidden-scrollbar ${
-            isReiji ? "overflow-y-auto" : ""
-          }`}
-        >
-          <p className="font-bold text-center text-white">MAIN</p>
-          {mainTrigger.map((trigger, index) => 
-            trigger === "なし" ? (
-              <FreeTrigger key={index} />
-            ) : (
-              <MainTrigger key={index} trigger={trigger} />
-            )
-          )}
+          {/* MAIN Trigger */}
+          {/* レイジのみ縦スクロール可にする */}
+          <div
+            className={`trigger-container w-[47.5%] h-full mr-[2%] p-1 hidden-scrollbar ${
+              isReiji ? "overflow-y-auto" : ""
+            }`}
+          >
+            <p className="font-bold text-center text-white">MAIN</p>
+            {mainTrigger.map((trigger, index) =>
+              trigger === "なし" ? (
+                <FreeTrigger key={index} />
+              ) : (
+                <MainTrigger key={index} trigger={trigger} />
+              )
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="w-full h-[85%] flex justify-center items-center">
+          <div className="trigger-container w-[85%] h-[95%] flex justify-center">
+            <Uniquetrigger character={character} uniqueTriggerName={uniqueTriggerName} />
+          </div>
+        </div>
+      )}
     </CardContainer>
   );
 }

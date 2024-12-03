@@ -1,4 +1,4 @@
-export default function SideMenu({ setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions }) {
+export default function SideMenu({ setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOthers, setFilterOthers }) {
   const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
   const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
@@ -38,6 +38,16 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
     );
   };
 
+  const handleOtherFilter = (filter) => {
+    setFilterOthers((prevFilters) => {
+      if (prevFilters.includes(filter)) {
+        return prevFilters.filter((item) => item !== filter); // 既に選択済みなら解除
+      } else {
+        return [...prevFilters, filter]; // クリックされたフィルタを追加
+      }
+    });
+  };
+
   // トリガーボタンの色を動的に変更するための関数
   const getTriggerButtonClass = (trigger) => {
     return filterTriggers.includes(trigger)
@@ -48,6 +58,12 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
   // ポジションボタンの色を動的に変更するための関数
   const getPositionButtonClass = (position) => {
     return filterPositions === position
+      ? "bg-[#166f8f] text-white p-2 rounded mb-4"
+      : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]";
+  };
+
+  const getOtherButtonClass = (filter) => {
+    return filterOthers.includes(filter)
       ? "bg-[#166f8f] text-white p-2 rounded mb-4"
       : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]";
   };
@@ -139,7 +155,23 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
         </button>
       ))}
 
-      <h2 className="mb-20">ステータス</h2>
+      {/* ========= フィルタリング用ボタン（その他）========= */}
+      <h1 className="filter-item">OTHERS</h1>
+      <button
+        className={`${getOtherButtonClass("サイドエフェクト")} rounded-xl`}
+        onClick={() => handleOtherFilter("サイドエフェクト")}
+      >
+        サイドエフェクト
+      </button>
+      <button
+        className={`${getOtherButtonClass("近界民")} rounded-xl`}
+        onClick={() => handleOtherFilter("近界民")}
+      >
+        近界民
+      </button>
+
+      {/* ========= フィルタリング用ボタン（ステータス）========= */}
+      <h1 className="filter-item">STATUS</h1>
     </div>
   );
 }

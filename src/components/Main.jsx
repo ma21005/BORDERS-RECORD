@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 
-export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOthers }) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -83,11 +83,27 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
   });
 
   // ポジションによるフィルタリング
-  const filteredCharacters = filteredByTrigger.filter((character) => {
+  const filteredByPosition = filteredByTrigger.filter((character) => {
     const characterPosition = character.ポジション;
 
     if (!filterPositions) return true; // フィルタが指定されていない場合は全て表示
     return characterPosition === filterPositions; // フィルタ条件に一致するポジションのみ
+  });
+
+  // その他によるフィルタリング（AND条件）
+  const filteredCharacters = filteredByPosition.filter((character) => {
+    // フィルタリング条件にサイドエフェクト
+    if (filterOthers.includes("サイドエフェクト") && !character.サイドエフェクト) {
+      return false; // サイドエフェクトが空文字の場合は除外
+    }
+
+    // フィルタリング条件に近界民
+    if (filterOthers.includes("近界民") && character.出身 !== "近界") {
+      return false; // 出身が近界でない場合は除外
+    }
+
+    // フィルタリングされた（除外されなかった）キャラクターを返す
+    return true;
   });
 
   return (

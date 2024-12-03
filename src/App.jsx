@@ -11,6 +11,7 @@ function App() {
 
   const [filterTriggers, setFilterTriggers] = useState([]); // トリガーのフィルタリング条件（複数指定可なので配列）
   const [filterPositions, setFilterPositions] = useState(""); // ポジションのフィルタリング条件
+  const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
 
   return (
     <div className="flex h-screen overflow-hidden main-container">
@@ -26,8 +27,10 @@ function App() {
             triggerNameAndType={triggerNameAndType}
             filterTriggers={filterTriggers}
             setFilterTriggers={setFilterTriggers}
-            filterPositions={filterPositions} // 追加
-            setFilterPositions={setFilterPositions} // 追加
+            filterPositions={filterPositions}
+            setFilterPositions={setFilterPositions}
+            filterOthers={filterOthers}
+            setFilterOthers={setFilterOthers}
           />
         </div>
       )}
@@ -42,8 +45,10 @@ function App() {
           triggerNameAndType={triggerNameAndType}
           filterTriggers={filterTriggers}
           setFilterTriggers={setFilterTriggers}
-          filterPositions={filterPositions} // 追加
-          setFilterPositions={setFilterPositions} // 追加
+          filterPositions={filterPositions}
+          setFilterPositions={setFilterPositions}
+          filterOthers={filterOthers}
+          setFilterOthers={setFilterOthers}
         />
       </aside>
       {/* メインコンテンツ */}
@@ -54,7 +59,8 @@ function App() {
             searchName={searchName}
             triggerNameAndType={triggerNameAndType}
             filterTriggers={filterTriggers}
-            filterPositions={filterPositions} // 追加
+            filterPositions={filterPositions}
+            filterOthers={filterOthers}
           />
         </main>
       </div>

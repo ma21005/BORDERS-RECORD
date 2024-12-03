@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 
-export default function Main({ searchName, triggerNameAndType, filterTriggers }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions }) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,9 +28,8 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers })
     return <p>Now Loading...</p>;
   }
 
-  // 最初に検索文字列によるフィルタリングを行う
+  // 検索文字列によるフィルタリング
   const filteredBySearch = charactersData.filter((character) => {
-    // 検索文字列によるフィルタリング
     if (searchName &&
       !(character.名前?.toLowerCase().includes(searchName.toLowerCase()) || 
         character.なまえ?.toLowerCase().includes(searchName.toLowerCase()))
@@ -40,12 +39,19 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers })
     return true; // 検索文字列にマッチしたキャラクターのみ残す
   });
 
-  // その後、AND条件によるフィルタリングを行う
-  const filteredCharacters = filteredBySearch.filter((character) => {
+  // トリガーによるフィルタリング
+  const filteredByTrigger = filteredBySearch.filter((character) => {
     const mainTrigger = [ character.メイン1, character.メイン2, character.メイン3, character.メイン4, character.メイン5, character.メイン6, character.メイン7 ];
     const subTrigger = [ character.サブ1, character.サブ2, character.サブ3, character.サブ4, character.サブ5, character.サブ6, character.サブ7];
+    const blackTrigger = [ character.黒トリガー ];
 
-    // AND条件によるフィルタリング
+    // 黒トリガーのフィルタリング
+    // 通常トリガーのフィルタリングとは独立させる
+    if (filterTriggers.includes('黒トリガー')) {
+      return blackTrigger.some((item) => item && item.trim() !== '');
+    }
+
+    // 通常トリガーのフィルタリング（AND条件）
     return filterTriggers.every((trigger) => {
       if (attackTriggers.includes(trigger)) {
         return mainTrigger.some((item) => item?.includes(trigger)) ||
@@ -74,6 +80,14 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers })
 
       return true; // デフォルトですべて表示
     });
+  });
+
+  // ポジションによるフィルタリング
+  const filteredCharacters = filteredByTrigger.filter((character) => {
+    const characterPosition = character.ポジション;
+
+    if (!filterPositions) return true; // フィルタが指定されていない場合は全て表示
+    return characterPosition === filterPositions; // フィルタ条件に一致するポジションのみ
   });
 
   return (

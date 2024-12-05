@@ -155,4 +155,6 @@ code {
   font-size: 1.5rem;
   font-weight: bold;
   color: #166f8f;
+  border-bottom: solid 3px #166f8f;
+  margin-bottom: 0.75rem;
 }

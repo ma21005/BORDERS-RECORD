@@ -8,7 +8,6 @@ import { triggerNameAndType } from './hooks/fetchTriggerType';
 function App() {
   const [open, setOpen] = useState(false);
   const [searchName, setSearchName] = useState(""); // 検索文字列の状態
-
   const [filterTriggers, setFilterTriggers] = useState([]); // トリガーのフィルタリング条件（複数指定可なので配列）
   const [filterPositions, setFilterPositions] = useState(""); // ポジションのフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
@@ -21,8 +20,12 @@ function App() {
       )}
       {/* サイドメニュー */}
       {open && (
-        <div className="w-72 fixed z-30 h-full">
+        <aside
+          className="fixed flex-shrink-0 overflow-y-auto hidden-scrollbar z-30"
+          style={{ width: '18rem', height: '100vh' }}
+        >
           <SideMenu
+            searchName={searchName}
             setSearchName={setSearchName}
             triggerNameAndType={triggerNameAndType}
             filterTriggers={filterTriggers}
@@ -32,15 +35,16 @@ function App() {
             filterOthers={filterOthers}
             setFilterOthers={setFilterOthers}
           />
-        </div>
+        </aside>
       )}
 
       {/* サイドメニュー（デスクトップ用） */}
       <aside
-        className="hidden lg:block flex-shrink-0 overflow-y-auto"
+        className="hidden lg:block flex-shrink-0 overflow-y-auto hidden-scrollbar"
         style={{ width: '28rem' }}
       >
         <SideMenu
+          searchName={searchName}
           setSearchName={setSearchName}
           triggerNameAndType={triggerNameAndType}
           filterTriggers={filterTriggers}

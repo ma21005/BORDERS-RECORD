@@ -1,4 +1,4 @@
-export default function SideMenu({ setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOthers, setFilterOthers }) {
+export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOthers, setFilterOthers }) {
   const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
   const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
@@ -9,6 +9,11 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
   const handleSearch = (event) => {
     setSearchName(event.target.value); // 検索文字列を更新
   };
+
+  const handleClear = () => {
+    setSearchName("");
+  };
+
 
   const handleTriggerFilter = (trigger) => {
     setFilterTriggers((prevFilters) => {
@@ -69,71 +74,92 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
   };
 
   return (
-    <div className="side-menu-container h-full w-full">
+    <div className="side-menu-container w-full flex-shrink-0 p-4">
       <h1 className="filter-item">NAME</h1>
-      <input
-        type="text"
-        placeholder="キャラクター名を入力"
-        className="border w-72 p-2 mb-4 rounded text-black"
-        onChange={handleSearch} // 入力値を処理
-      />
+      <div className="w-4/5 relative">
+        <input
+          type="text"
+          value={searchName}
+          placeholder="キャラクター名を入力"
+          className="w-full border p-2 mb-4 rounded text-black"
+          onChange={handleSearch} // 入力値を処理
+        />
+        {searchName && (
+          <button
+            onClick={handleClear}
+            className="absolute right-1 top-1/3 transform -translate-y-1/2 text-gray-700 hover:text-black w-10 h-10 flex items-center justify-center text-3xl"
+          >
+            ×
+          </button>
+        )}
+      </div>
 
       {/* ========= フィルタリング用ボタン（トリガー）========= */}
       <h1 className="filter-item">TRIGGER</h1>
       <h2 className="text-sm text-gray-400">ATTACK TRIGGER</h2>
-      {attackTriggers.map((trigger, index) => (
-        <button
-          key={`attack-${index}`}
-          className={`${getTriggerButtonClass(trigger)} rounded-xl`}
-          onClick={() => handleTriggerFilter(trigger)}
-        >
-          {trigger}
-        </button>
-      ))}
+      <div className="flex flex-wrap space-x-1 gap-x-3">
+        {attackTriggers.map((trigger, index) => (
+          <button
+            key={`attack-${index}`}
+            className={`${getTriggerButtonClass(trigger)} rounded-xl`}
+            onClick={() => handleTriggerFilter(trigger)}
+          >
+            {trigger}
+          </button>
+        ))}
+      </div>
 
       <h2 className="text-sm text-gray-400">GUNNER TRIGGER</h2>
-      {gunnerTriggers.map((trigger, index) => (
-        <button
-          key={`gunner-${index}`}
-          className={`${getTriggerButtonClass(trigger)} rounded-xl`}
-          onClick={() => handleTriggerFilter(trigger)}
-        >
-          {trigger}
-        </button>
-      ))}
+      <div className="flex flex-wrap gap-x-3">
+        {gunnerTriggers.map((trigger, index) => (
+          <button
+            key={`gunner-${index}`}
+            className={`${getTriggerButtonClass(trigger)} rounded-xl`}
+            onClick={() => handleTriggerFilter(trigger)}
+          >
+            {trigger}
+          </button>
+        ))}
+      </div>
 
       <h2 className="text-sm text-gray-400">SNIPER TRIGGER</h2>
-      {sniperTriggers.map((trigger, index) => (
-        <button
-          key={`sniper-${index}`}
-          className={`${getTriggerButtonClass(trigger)} rounded-xl`}
-          onClick={() => handleTriggerFilter(trigger)}
-        >
-          {trigger}
-        </button>
-      ))}
+      <div className="flex flex-wrap gap-x-3">
+        {sniperTriggers.map((trigger, index) => (
+          <button
+            key={`sniper-${index}`}
+            className={`${getTriggerButtonClass(trigger)} rounded-xl`}
+            onClick={() => handleTriggerFilter(trigger)}
+          >
+            {trigger}
+          </button>
+        ))}
+      </div>
 
       <h2 className="text-sm text-gray-400">DEFFENSE TRIGGER</h2>
-      {deffenseTriggers.map((trigger, index) => (
-        <button
-          key={`defense-${index}`}
-          className={`${getTriggerButtonClass(trigger)} rounded-xl`}
-          onClick={() => handleTriggerFilter(trigger)}
-        >
-          {trigger}
-        </button>
-      ))}
+      <div className="flex flex-wrap gap-x-3">
+        {deffenseTriggers.map((trigger, index) => (
+          <button
+            key={`defense-${index}`}
+            className={`${getTriggerButtonClass(trigger)} rounded-xl`}
+            onClick={() => handleTriggerFilter(trigger)}
+          >
+            {trigger}
+          </button>
+        ))}
+      </div>
 
       <h2 className="text-sm text-gray-400">OPTION TRIGGER</h2>
-      {optionTriggers.map((trigger, index) => (
-        <button
-          key={`option-${index}`}
-          className={`${getTriggerButtonClass(trigger)} rounded-xl`}
-          onClick={() => handleTriggerFilter(trigger)}
-        >
-          {trigger}
-        </button>
-      ))}
+      <div className="flex flex-wrap gap-x-3">
+        {optionTriggers.map((trigger, index) => (
+          <button
+            key={`option-${index}`}
+            className={`${getTriggerButtonClass(trigger)} rounded-xl`}
+            onClick={() => handleTriggerFilter(trigger)}
+          >
+            {trigger}
+          </button>
+        ))}
+      </div>
 
       <h2 className="text-sm text-gray-400">BLACK TRIGGER</h2>
       <button
@@ -145,30 +171,34 @@ export default function SideMenu({ setSearchName, triggerNameAndType, filterTrig
 
       {/* ========= フィルタリング用ボタン（ポジション）========= */}     
       <h1 className="filter-item">POSITION</h1>
-      {positions.map((position, index) => (
-        <button
-          key={`position-${index}`}
-          className={`${getPositionButtonClass(position)} rounded-xl`}
-          onClick={() => handlePositionFilter(position)}
-        >
-          {position}
-        </button>
-      ))}
+      <div className="flex flex-wrap gap-x-3">
+        {positions.map((position, index) => (
+          <button
+            key={`position-${index}`}
+            className={`${getPositionButtonClass(position)} rounded-xl`}
+            onClick={() => handlePositionFilter(position)}
+          >
+            {position}
+          </button>
+        ))}
+      </div>
 
       {/* ========= フィルタリング用ボタン（その他）========= */}
       <h1 className="filter-item">OTHERS</h1>
-      <button
-        className={`${getOtherButtonClass("サイドエフェクト")} rounded-xl`}
-        onClick={() => handleOtherFilter("サイドエフェクト")}
-      >
-        サイドエフェクト
-      </button>
-      <button
-        className={`${getOtherButtonClass("近界民")} rounded-xl`}
-        onClick={() => handleOtherFilter("近界民")}
-      >
-        近界民
-      </button>
+      <div className="flex flex-wrap gap-x-3">
+        <button
+          className={`${getOtherButtonClass("サイドエフェクト")} rounded-xl`}
+          onClick={() => handleOtherFilter("サイドエフェクト")}
+        >
+          サイドエフェクト
+        </button>
+        <button
+          className={`${getOtherButtonClass("近界民")} rounded-xl`}
+          onClick={() => handleOtherFilter("近界民")}
+        >
+          近界民
+        </button>
+      </div>
 
       {/* ========= フィルタリング用ボタン（ステータス）========= */}
       <h1 className="filter-item">STATUS</h1>

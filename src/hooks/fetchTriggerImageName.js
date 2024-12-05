@@ -4,12 +4,19 @@ import { triggerNameAndType } from './fetchTriggerType';
 const optionTrigger = triggerNameAndType["OPTION TRIGGER"];
 
 export function getImageName(trigger) {
-  if (trigger.includes("拳銃")) {
+  if (trigger.includes("スパイダー(改)：拳銃")) {
+    return "拳銃_改";
+  } else if (trigger.includes("拳銃")) {
     return "拳銃";
   } else if (trigger.includes("突撃銃")) {
     return "突撃銃";
-  }else if (trigger.includes("機関砲")) {
+  } else if (trigger.includes("機関砲")) {
     return "機関砲";
+  } else if (trigger.includes("槍")) {
+    return "弧月_槍";
+  } else if (trigger.includes("スコーピオン(改)")) {
+    return "スコーピオン";
   }
+
   return optionTrigger.includes(trigger) ? "オプション" : trigger;
 }

@@ -3,6 +3,7 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
   const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
   const deffenseTriggers = triggerNameAndType["DEFFENSE TRIGGER"];
+  const trapTriggers = triggerNameAndType["TRAP TRIGGER"];
   const optionTriggers = triggerNameAndType["OPTION TRIGGER"];
   const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "オペレーター"]
 
@@ -138,6 +139,19 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
       <h2 className="text-sm text-gray-400">DEFFENSE TRIGGER</h2>
       <div className="flex flex-wrap gap-x-3">
         {deffenseTriggers.map((trigger, index) => (
+          <button
+            key={`defense-${index}`}
+            className={`${getTriggerButtonClass(trigger)} rounded-xl`}
+            onClick={() => handleTriggerFilter(trigger)}
+          >
+            {trigger}
+          </button>
+        ))}
+      </div>
+
+      <h2 className="text-sm text-gray-400">TRAP TRIGGER</h2>
+      <div className="flex flex-wrap gap-x-3">
+        {trapTriggers.map((trigger, index) => (
           <button
             key={`defense-${index}`}
             className={`${getTriggerButtonClass(trigger)} rounded-xl`}

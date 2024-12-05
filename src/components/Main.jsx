@@ -10,6 +10,7 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
   const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
   const deffenseTriggers = triggerNameAndType["DEFFENSE TRIGGER"];
+  const trapTriggers = triggerNameAndType["TRAP TRIGGER"];
   const optionTriggers = triggerNameAndType["OPTION TRIGGER"];
 
   useEffect(() => {
@@ -32,7 +33,8 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
   const filteredBySearch = charactersData.filter((character) => {
     if (searchName &&
       !(character.名前?.toLowerCase().includes(searchName.toLowerCase()) || 
-        character.なまえ?.toLowerCase().includes(searchName.toLowerCase()))
+        character.なまえ?.toLowerCase().includes(searchName.toLowerCase()) || 
+        character.name?.toLowerCase().includes(searchName.toLowerCase()))
     ) {
       return false;
     }
@@ -69,6 +71,11 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
       }
 
       if (deffenseTriggers.includes(trigger)) {
+        return mainTrigger.some((item) => item?.includes(trigger)) ||
+               subTrigger.some((item) => item?.includes(trigger));
+      }
+
+      if (trapTriggers.includes(trigger)) {
         return mainTrigger.some((item) => item?.includes(trigger)) ||
                subTrigger.some((item) => item?.includes(trigger));
       }

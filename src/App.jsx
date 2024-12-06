@@ -43,7 +43,7 @@ function App() {
 
       {/* サイドメニュー（デスクトップ用） */}
       <aside
-        className="hidden lg:block flex-shrink-0 overflow-y-auto hidden-scrollbar"
+        className="hidden lg:block flex-shrink-0 overflow-y-auto"
         style={{ width: '28rem' }}
       >
         <SideMenu

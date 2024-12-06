@@ -16,6 +16,17 @@
   }
 }
 
+/* SideMenuのサイドバーデザイン */
+aside::-webkit-scrollbar {
+  width: 14px;
+  background-color: #090909;
+}
+aside::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px 10px #166f8f;
+  border: solid 4px transparent
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -41,7 +52,6 @@ code {
 
 .side-menu-container {
   background-color: #090909;
-  border-right: 3px solid #166f8f;
   color: white;
 }
 

@@ -5,8 +5,11 @@ const backGroudColor = {
   "太刀川隊" : "#211a18",
   "冬島隊" : "#671e29",
   "風間隊" : "#2e5573",
+  "草壁隊" : "#6a5b27",
   "嵐山隊" : "#9e2d33",
+  "加古隊" : "#7d3890",
   "三輪隊" : "#534962",
+  "片桐隊" : "#f0ede8",
   "二宮隊" : "#1a181a",
   "影浦隊" : "#1e1d1f",
   "弓場隊" : "#f0ede8",
@@ -18,7 +21,9 @@ const backGroudColor = {
   "諏訪隊" : "#5d663a",
   "荒船隊" : "#1b1e23",
   "那須隊" : "#ebeaef",
-  "アフトクラトル" : "#663366",
+  "柿崎隊" : "#E17730",
+  "アフトクラトル" : "#3d1a3d",
+  "ガロプラ" : "#555243",
 
   "迅 悠一" : "#066284",
   "木崎 レイジ" : "#303d32",
@@ -32,7 +37,7 @@ export function fetchCharacterBackGroudColor(character) {
   if (character.黒トリガー) {
     return "#000000"; // 黒トリガーの場合は黒背景
   } else if (characterTeam === '-') {
-    if (character.組織 === 'アフトクラトル') {
+    if (character.組織 === 'アフトクラトル' || character.組織 === 'ガロプラ') {
       return backGroudColor[character.組織]
     }
     return backGroudColor[character.名前]

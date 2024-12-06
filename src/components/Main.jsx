@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 
-export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOthers }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers }) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -94,11 +94,25 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
     const characterPosition = character.ポジション;
 
     if (!filterPositions) return true; // フィルタが指定されていない場合は全て表示
+
+    if (filterPositions === "オペレーター以外" && characterPosition !== "オペレーター") {
+      return true;
+    }
+
     return characterPosition === filterPositions; // フィルタ条件に一致するポジションのみ
   });
 
+  // 組織によるフィルタリング
+  const filteredOrganizations = filteredByPosition.filter((character) => {
+    const characterOrganization = character.組織;
+
+    if (!filterOrganizations) return true; // フィルタが指定されていない場合は全て表示
+
+    return characterOrganization === filterOrganizations; // フィルタ条件に一致する組織のみ
+  });
+
   // その他によるフィルタリング（AND条件）
-  const filteredCharacters = filteredByPosition.filter((character) => {
+  const filteredCharacters = filteredOrganizations.filter((character) => {
     // フィルタリング条件にサイドエフェクト
     if (filterOthers.includes("サイドエフェクト") && !character.サイドエフェクト) {
       return false; // サイドエフェクトが空文字の場合は除外

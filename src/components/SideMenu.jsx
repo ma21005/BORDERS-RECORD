@@ -1,11 +1,13 @@
-export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOthers, setFilterOthers }) {
+export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers }) {
   const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
   const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
   const deffenseTriggers = triggerNameAndType["DEFFENSE TRIGGER"];
   const trapTriggers = triggerNameAndType["TRAP TRIGGER"];
   const optionTriggers = triggerNameAndType["OPTION TRIGGER"];
-  const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "オペレーター"]
+  const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "オペレーター", "オペレーター以外"];
+  const organizations = ["BORDER", "アフトクラトル", "ガロプラ"];
+  const others = ["サイドエフェクト", "近界民"]; // その他のフィルタリング
 
   const handleSearch = (event) => {
     setSearchName(event.target.value); // 検索文字列を更新
@@ -44,6 +46,12 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
     );
   };
 
+  const handleOrganizationFilter = (organization) => {
+    setFilterOrganizations((prevOrganization) =>
+      prevOrganization === organization ? "" : organization // 同じ組織を選択した場合は解除
+    );
+  };
+
   const handleOtherFilter = (filter) => {
     setFilterOthers((prevFilters) => {
       if (prevFilters.includes(filter)) {
@@ -64,6 +72,12 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
   // ポジションボタンの色を動的に変更するための関数
   const getPositionButtonClass = (position) => {
     return filterPositions === position
+      ? "bg-[#166f8f] text-white p-2 rounded mb-4"
+      : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]";
+  };
+
+  const getOrganizationButtonClass = (organization) => {
+    return filterOrganizations.includes(organization)
       ? "bg-[#166f8f] text-white p-2 rounded mb-4"
       : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]";
   };
@@ -197,21 +211,34 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
         ))}
       </div>
 
+      {/* ========= フィルタリング用ボタン（組織）========= */}
+      <h1 className="filter-item">ORGANIZATIONS</h1>
+      <div className="flex flex-wrap gap-x-3">
+
+        {organizations.map((organization, index) => (
+          <button
+            key={`organization-${index}`}
+            className={`${getOrganizationButtonClass(organization)} rounded-xl`}
+            onClick={() => handleOrganizationFilter(organization)}
+          >
+            {organization}
+          </button>
+        ))}
+      </div>
+
       {/* ========= フィルタリング用ボタン（その他）========= */}
       <h1 className="filter-item">OTHERS</h1>
       <div className="flex flex-wrap gap-x-3">
-        <button
-          className={`${getOtherButtonClass("サイドエフェクト")} rounded-xl`}
-          onClick={() => handleOtherFilter("サイドエフェクト")}
-        >
-          サイドエフェクト
-        </button>
-        <button
-          className={`${getOtherButtonClass("近界民")} rounded-xl`}
-          onClick={() => handleOtherFilter("近界民")}
-        >
-          近界民
-        </button>
+
+        {others.map((other, index) => (
+          <button
+            key={`other-${index}`}
+            className={`${getOtherButtonClass(other)} rounded-xl`}
+            onClick={() => handleOtherFilter(other)}
+          >
+            {other}
+          </button>
+        ))}
       </div>
 
       {/* ========= フィルタリング用ボタン（ステータス）========= */}

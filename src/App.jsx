@@ -10,6 +10,7 @@ function App() {
   const [searchName, setSearchName] = useState(""); // 検索文字列の状態
   const [filterTriggers, setFilterTriggers] = useState([]); // トリガーのフィルタリング条件（複数指定可なので配列）
   const [filterPositions, setFilterPositions] = useState(""); // ポジションのフィルタリング条件
+  const [filterOrganizations, setFilterOrganizations] = useState(""); // 組織のフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
 
   return (
@@ -32,6 +33,8 @@ function App() {
             setFilterTriggers={setFilterTriggers}
             filterPositions={filterPositions}
             setFilterPositions={setFilterPositions}
+            filterOrganizations={filterOrganizations}
+            setFilterOrganizations={setFilterOrganizations}
             filterOthers={filterOthers}
             setFilterOthers={setFilterOthers}
           />
@@ -51,6 +54,8 @@ function App() {
           setFilterTriggers={setFilterTriggers}
           filterPositions={filterPositions}
           setFilterPositions={setFilterPositions}
+          filterOrganizations={filterOrganizations}
+          setFilterOrganizations={setFilterOrganizations}
           filterOthers={filterOthers}
           setFilterOthers={setFilterOthers}
         />
@@ -64,6 +69,7 @@ function App() {
             triggerNameAndType={triggerNameAndType}
             filterTriggers={filterTriggers}
             filterPositions={filterPositions}
+            filterOrganizations={filterOrganizations}
             filterOthers={filterOthers}
           />
         </main>

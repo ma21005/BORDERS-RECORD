@@ -27,6 +27,25 @@ aside::-webkit-scrollbar-thumb {
   border: solid 4px transparent
 }
 
+aside {
+  -webkit-overflow-scrolling: touch;
+}
+
+.main-container-2::-webkit-scrollbar {
+  width: 18px;
+  background-color: #090909;
+}
+
+.main-container-2::-webkit-scrollbar-thumb {
+  border-radius: 14px;
+  box-shadow: inset 0 0 10px 10px #166f8f;
+  border: solid 4px transparent
+}
+
+.main-container-2 {
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -62,7 +62,7 @@ function App() {
         />
       </aside>
       {/* メインコンテンツ */}
-      <div className="flex-1 overflow-x-hidden overflow-y-auto pt-14 lg:pt-0 main-container-2">
+      <div className="flex-1 overflow-x-hidden overflow-y-auto pt-16 lg:pt-0 main-container-2">
         <Header setOpen={setOpen} />
         <main>
           <Main

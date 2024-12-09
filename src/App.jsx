@@ -2,6 +2,7 @@ import { useState } from "react";
 import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 import './App.css';
 import { triggerNameAndType } from './hooks/fetchTriggerType';
 
@@ -73,6 +74,7 @@ function App() {
             filterOthers={filterOthers}
           />
         </main>
+        <Footer />
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ export default function CharacterDetailCard({ character }) {
       <div className="detail-container h-[85%] text-white hidden-scrollbar">
         {detailColumn.map((column, index) => (
           <div key={index}>
-            <p className="detail-column">
+            <p className="detail-column mr-3">
               <span className="font-bold">{column.label}：</span>{column.value}
             </p>
           </div>

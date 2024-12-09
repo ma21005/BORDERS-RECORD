@@ -18,7 +18,7 @@ export default function SubTrigger({ trigger }) {
         <div className="trigger-type text-white inline-block">
           <p>{triggerType}</p>
         </div>
-        <div className="mt-0.5 text-xs text-white font-bold whitespace-nowrap">
+        <div className="mr-2 text-xs text-white font-bold whitespace-nowrap inline-block" style={{ position: 'relative', top: '-3px' }}>
           <p>{trigger}</p>
         </div>
       </div>

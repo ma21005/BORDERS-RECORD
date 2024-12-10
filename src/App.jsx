@@ -2,6 +2,7 @@ import { useState } from "react";
 import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import CardFlipButton from "./components/CardFlipButton";
 import './App.css';
 import { triggerNameAndType } from './hooks/fetchTriggerType';
 
@@ -13,7 +14,16 @@ function App() {
   const [filterOrganizations, setFilterOrganizations] = useState(""); // 組織のフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
 
-  const [characterCardIndex, setCharacterCardIndex] = useState(0); // 現在のキャラクターカードタイプ
+  const [flipTrigger, setFlipTrigger] = useState(false); // キャラクターカードをフリップさせるトリガー
+  const [flipToIndex, setFlipToIndex] = useState(0); // フリップ先のカードタイプのインデックス
+
+  const handleFlip = (index) => {
+    if (index !== flipToIndex) { // 現在のカードタイプと異なるボタンの場合のみフリップをトリガー
+      setFlipToIndex(index);
+      setFlipTrigger(true); // フリップをトリガー
+      setTimeout(() => setFlipTrigger(false), 300); // アニメーション終了後リセット
+    }
+  };
 
   return (
     <div className="flex h-screen overflow-hidden main-container">
@@ -63,35 +73,9 @@ function App() {
         />
       </aside>
       {/* メインコンテンツ */}
-      <div className="main-container-2 flex-1 overflow-x-hidden overflow-y-auto pt-16 lg:pt-0">
+      <div className="main-container-2 flex-1 overflow-x-hidden overflow-y-auto pt-16 lg:pt-0 relative">
         <Header setOpen={setOpen} />
         <main>
-          <div>
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={() => setCharacterCardIndex(0)} // Titleカード
-          >
-            Title
-          </button>
-          <button
-            className="px-4 py-2 bg-green-500 text-white rounded"
-            onClick={() => setCharacterCardIndex(1)} // Statusカード
-          >
-            Status
-          </button>
-          <button
-            className="px-4 py-2 bg-yellow-500 text-white rounded"
-            onClick={() => setCharacterCardIndex(2)} // Triggerカード
-          >
-            Trigger
-          </button>
-          <button
-            className="px-4 py-2 bg-red-500 text-white rounded"
-            onClick={() => setCharacterCardIndex(3)} // Detailカード
-          >
-            Detail
-          </button>
-          </div>
           <Main
             searchName={searchName}
             triggerNameAndType={triggerNameAndType}
@@ -99,8 +83,13 @@ function App() {
             filterPositions={filterPositions}
             filterOrganizations={filterOrganizations}
             filterOthers={filterOthers}
-            characterCardIndex={characterCardIndex}
+            flipTrigger={flipTrigger}
+            flipToIndex={flipToIndex}
           />
+          {/* サイドメニュー（デスクトップ用）が表示されている場合のカード切り替えボタン表示 */}
+          <div className="hidden lg:block">
+            <CardFlipButton handleFlip={handleFlip} />
+          </div>
         </main>
       </div>
     </div>

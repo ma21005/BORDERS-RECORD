@@ -1,11 +1,11 @@
 import CharacterStatusCard from "./CharacterStatusCard";
 import CharacterTitleCard from "./CharacterTitleCard";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CharacterTriggerCard from "./CharacterTriggerCard";
 import CharacterDetailCard from "./CharacterDetailCard";
 import CharacterCardBack from "./CharacterCardBack";
 
-export default function CharacterCard({ character, characterCardIndex }) {
+export default function CharacterCard({ character, flipTrigger, flipToIndex  }) {
   const characterCardTypes = [
     { name: "CharacterTitleCard", component: CharacterTitleCard },
     { name: "CharacterStatusCard", component: CharacterStatusCard },
@@ -16,17 +16,26 @@ export default function CharacterCard({ character, characterCardIndex }) {
   const [currentCardIndex, setCurrentCardIndex] = useState(0); // 現在表示されているカードのインデックス
   const [isFlipping, setIsFlipping] = useState(false); // フリップアニメーション中かどうか
 
+  useEffect(() => {
+    if (flipTrigger) {
+      setIsFlipping(true);
+      setTimeout(() => {
+        setCurrentCardIndex(flipToIndex);
+        setIsFlipping(false);
+      }, 300); // 300msのフリップアニメーション
+    }
+  }, [flipTrigger, flipToIndex]);
+
   const handleCardFlip = () => {
     setIsFlipping(true);
     setTimeout(() => {
-      // 次のカードに切り替え、循環させる
       const nextIndex = (currentCardIndex + 1) % characterCardTypes.length;
-      setCurrentCardIndex(nextIndex); // インデックス更新
-      setIsFlipping(false); // フリップアニメーション終了
-    }, 300); // 300msのフリップアニメーション
+      setCurrentCardIndex(nextIndex);
+      setIsFlipping(false);
+    }, 300);
   };
 
-  const CurrentCard = characterCardTypes[characterCardIndex].component;
+  const CurrentCard = characterCardTypes[currentCardIndex].component;
 
   return (
     <div onClick={handleCardFlip} className="relative cursor-pointer w-full h-full">

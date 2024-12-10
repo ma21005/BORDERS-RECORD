@@ -16,6 +16,7 @@ export default function CharacterDetailCard({ character }) {
   };
 
   const detailColumn = [
+    { label: "名前", value: character.なまえ },
     { label: "組織", value: character.組織 },
     { label: "部隊", value: character.部隊 },
     { label: "ポジション", value: character.ポジション },
@@ -26,6 +27,7 @@ export default function CharacterDetailCard({ character }) {
     { label: "星座", value: character.星座 },
     { label: "職業", value: character.職業 },
     { label: "好きなもの", value: character.好きなもの },
+    { label: "サイドエフェクト", value: character.サイドエフェクト },
   ];
 
   return (
@@ -36,7 +38,7 @@ export default function CharacterDetailCard({ character }) {
 
       <div className="detail-container h-[85%] text-white hidden-scrollbar">
         {detailColumn.map((column, index) => (
-          <div key={index}>
+          <div className="mb-0.5" key={index}>
             <p className="detail-column mr-3">
               <span className="font-bold">{column.label}：</span>{column.value}
             </p>

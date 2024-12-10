@@ -5,7 +5,7 @@ import CharacterTriggerCard from "./CharacterTriggerCard";
 import CharacterDetailCard from "./CharacterDetailCard";
 import CharacterCardBack from "./CharacterCardBack";
 
-export default function CharacterCard({ character }) {
+export default function CharacterCard({ character, characterCardIndex }) {
   const characterCardTypes = [
     { name: "CharacterTitleCard", component: CharacterTitleCard },
     { name: "CharacterStatusCard", component: CharacterStatusCard },
@@ -26,7 +26,7 @@ export default function CharacterCard({ character }) {
     }, 300); // 300msのフリップアニメーション
   };
 
-  const CurrentCard = characterCardTypes[currentCardIndex].component; // 現在のカードコンポーネント
+  const CurrentCard = characterCardTypes[characterCardIndex].component;
 
   return (
     <div onClick={handleCardFlip} className="relative cursor-pointer w-full h-full">

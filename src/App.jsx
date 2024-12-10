@@ -13,6 +13,8 @@ function App() {
   const [filterOrganizations, setFilterOrganizations] = useState(""); // 組織のフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
 
+  const [characterCardIndex, setCharacterCardIndex] = useState(0); // 現在のキャラクターカードタイプ
+
   return (
     <div className="flex h-screen overflow-hidden main-container">
       {/* オーバーレイ */}
@@ -61,9 +63,35 @@ function App() {
         />
       </aside>
       {/* メインコンテンツ */}
-      <div className="flex-1 overflow-x-hidden overflow-y-auto pt-16 lg:pt-0 main-container-2">
+      <div className="main-container-2 flex-1 overflow-x-hidden overflow-y-auto pt-16 lg:pt-0">
         <Header setOpen={setOpen} />
         <main>
+          <div>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={() => setCharacterCardIndex(0)} // Titleカード
+          >
+            Title
+          </button>
+          <button
+            className="px-4 py-2 bg-green-500 text-white rounded"
+            onClick={() => setCharacterCardIndex(1)} // Statusカード
+          >
+            Status
+          </button>
+          <button
+            className="px-4 py-2 bg-yellow-500 text-white rounded"
+            onClick={() => setCharacterCardIndex(2)} // Triggerカード
+          >
+            Trigger
+          </button>
+          <button
+            className="px-4 py-2 bg-red-500 text-white rounded"
+            onClick={() => setCharacterCardIndex(3)} // Detailカード
+          >
+            Detail
+          </button>
+          </div>
           <Main
             searchName={searchName}
             triggerNameAndType={triggerNameAndType}
@@ -71,6 +99,7 @@ function App() {
             filterPositions={filterPositions}
             filterOrganizations={filterOrganizations}
             filterOthers={filterOthers}
+            characterCardIndex={characterCardIndex}
           />
         </main>
       </div>

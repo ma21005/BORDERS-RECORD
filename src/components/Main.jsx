@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 
-export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers, characterCardIndex}) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -133,7 +133,8 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 p-2'>
           {filteredCharacters.map((character, index) => (
             <div key={index} className='w-80 h-80'>
-              <CharacterCard character={character} />
+              {/* <CharacterCard character={character} /> */}
+              <CharacterCard character={character} characterCardIndex={characterCardIndex} />
             </div>
           ))}
         </div>

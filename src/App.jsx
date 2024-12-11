@@ -3,6 +3,7 @@ import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import CardFlipButton from "./components/CardFlipButton";
+import CardFlipButtonSmall from "./components/CardFlipButtonSmall";
 import './App.css';
 import { triggerNameAndType } from './hooks/fetchTriggerType';
 
@@ -31,7 +32,7 @@ function App() {
       {open && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-20" onClick={() => setOpen(false)}></div>
       )}
-      {/* サイドメニュー */}
+      {/* サイドメニュー（スマホ用） */}
       {open && (
         <aside
           className="fixed flex-shrink-0 overflow-y-auto hidden-scrollbar z-30"
@@ -76,6 +77,10 @@ function App() {
       <div className="main-container-2 flex-1 overflow-x-hidden overflow-y-auto pt-16 lg:pt-0 relative">
         <Header setOpen={setOpen} />
         <main>
+          {/* サイドメニュー（スマホ用）が表示されている場合のカード切り替えボタン表示 */}
+          <div className="lg:hidden">
+            <CardFlipButtonSmall handleFlip={handleFlip} />
+          </div>
           <Main
             searchName={searchName}
             triggerNameAndType={triggerNameAndType}

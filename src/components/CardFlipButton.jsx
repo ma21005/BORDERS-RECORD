@@ -16,8 +16,8 @@ const CardFlipButton = ({ handleFlip }) => {
         onClick={() => handleFlip(1)}
       >
         <img 
-          src="https://borders-records.s3.ap-northeast-1.amazonaws.com/button-icons/trigger.png"
-          alt="Title"
+          src="https://borders-records.s3.ap-northeast-1.amazonaws.com/button-icons/status.png"
+          alt="Status"
           className="card-flid-button"
         />
       </button>
@@ -26,7 +26,7 @@ const CardFlipButton = ({ handleFlip }) => {
       >
         <img 
           src="https://borders-records.s3.ap-northeast-1.amazonaws.com/button-icons/trigger.png"
-          alt="Title"
+          alt="Trigger"
           className="card-flid-button"
         />
       </button>
@@ -35,7 +35,7 @@ const CardFlipButton = ({ handleFlip }) => {
       >
         <img 
           src="https://borders-records.s3.ap-northeast-1.amazonaws.com/button-icons/trigger.png"
-          alt="Title"
+          alt="Detail"
           className="card-flid-button"
         />
       </button>

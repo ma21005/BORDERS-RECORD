@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
+import { ThreeCircles } from 'react-loader-spinner';
 
 export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers, flipTrigger, flipToIndex }) {
   const [charactersData, setCharactersData] = useState([]);
@@ -26,7 +27,17 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
 
   // ローディング中の表示
   if (loading) {
-    return <p>Now Loading...</p>;
+    return (
+      <div className="flex flex-col justify-center items-center h-screen">
+        <ThreeCircles
+          color="#166f8f"
+          height={150}
+          width={150}
+          timeout={3000}
+        />
+        <p className="loading-text">Now Loading..</p>
+      </div>
+    );
   }
 
   // 検索文字列によるフィルタリング

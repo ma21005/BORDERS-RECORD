@@ -241,3 +241,9 @@ code {
   border-bottom: solid 3px #166f8f;
   margin-bottom: 0.75rem;
 }
+
+.loading-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #166f8f;
+}

@@ -5,7 +5,7 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
   const deffenseTriggers = triggerNameAndType["DEFFENSE TRIGGER"];
   const trapTriggers = triggerNameAndType["TRAP TRIGGER"];
   const optionTriggers = triggerNameAndType["OPTION TRIGGER"];
-  const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "オペレーター", "オペレーター以外"];
+  const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "スポッター", "オペレーター", "オペレーター以外"];
   const organizations = ["BORDER", "アフトクラトル", "ガロプラ"];
   const others = ["サイドエフェクト", "近界民"]; // その他のフィルタリング
 

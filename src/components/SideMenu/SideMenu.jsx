@@ -1,8 +1,9 @@
 // import StatusSlider from "./StatusSlider";
 import FilterName from "./FilterName";
 import FilterButtons from "./FilterButtons";
+import FilterStatus from "./FilterStatus";
 
-export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers }) {
+export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers, sliderValue, setSliderValue,}) {
 
   return (
     <div className="side-menu-container w-full flex-shrink-0 p-4">
@@ -22,10 +23,8 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
         setFilterOthers={setFilterOthers}
       />
 
-      {/* ========= フィルタリング用ボタン（ステータス）========= */}
-      <h1 className="filter-item">STATUS</h1>
-
-      {/* <StatusSlider /> */}
+      {/* ========= ステータスをフィルタリングするスライダー ========= */}
+      <FilterStatus setSliderValue={setSliderValue} />
     </div>
   );
 }

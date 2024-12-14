@@ -31,6 +31,27 @@ aside {
   -webkit-overflow-scrolling: touch;
 }
 
+/* ステータスをフィルタリングするサイドバーの 〇 の色を変えるための設定 */
+.slider::-webkit-slider-thumb { /* Chrome, Edge, Safari用 */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #166f8f; /* 丸の色 */
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.slider::-moz-range-thumb { /* Firefox用 */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #166f8f; /* 丸の色 */
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+
 .main-container-2::-webkit-scrollbar {
   width: 18px;
   background-color: #090909;

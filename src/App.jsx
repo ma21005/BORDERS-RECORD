@@ -14,6 +14,7 @@ function App() {
   const [filterPositions, setFilterPositions] = useState(""); // ポジションのフィルタリング条件
   const [filterOrganizations, setFilterOrganizations] = useState(""); // 組織のフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
+  const [sliderValue, setSliderValue] = useState(0); // トリオンのスライダー値
 
   const [flipTrigger, setFlipTrigger] = useState(false); // キャラクターカードをフリップさせるトリガー
   const [flipToIndex, setFlipToIndex] = useState(0); // フリップ先のカードタイプのインデックス
@@ -50,6 +51,8 @@ function App() {
             setFilterOrganizations={setFilterOrganizations}
             filterOthers={filterOthers}
             setFilterOthers={setFilterOthers}
+            sliderValue={sliderValue} // sliderValue を渡す
+            setSliderValue={setSliderValue} // sliderValue を更新する関数を渡す
           />
         </aside>
       )}
@@ -71,6 +74,8 @@ function App() {
           setFilterOrganizations={setFilterOrganizations}
           filterOthers={filterOthers}
           setFilterOthers={setFilterOthers}
+          sliderValue={sliderValue} // sliderValue を渡す
+          setSliderValue={setSliderValue} // sliderValue を更新する関数を渡す
         />
       </aside>
       {/* メインコンテンツ */}
@@ -90,6 +95,7 @@ function App() {
             filterOthers={filterOthers}
             flipTrigger={flipTrigger}
             flipToIndex={flipToIndex}
+            sliderValue={sliderValue} // Main に sliderValue を渡す
           />
           {/* サイドメニュー（デスクトップ用）が表示されている場合のカード切り替えボタン表示 */}
           <div className="hidden lg:block">

@@ -3,7 +3,7 @@ import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 import { ThreeCircles } from 'react-loader-spinner';
 
-export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers, flipTrigger, flipToIndex }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers, flipTrigger, flipToIndex, sliderValue }) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -123,7 +123,7 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
   });
 
   // その他によるフィルタリング（AND条件）
-  const filteredCharacters = filteredOrganizations.filter((character) => {
+  const filteredOthers = filteredOrganizations.filter((character) => {
     // フィルタリング条件にサイドエフェクト
     if (filterOthers.includes("サイドエフェクト") && !character.サイドエフェクト) {
       return false; // サイドエフェクトが空文字の場合は除外
@@ -136,6 +136,15 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
 
     // フィルタリングされた（除外されなかった）キャラクターを返す
     return true;
+  });
+
+  // ステータスよるフィルタリング
+  const filteredCharacters = filteredOthers.filter((character) => {
+    if (character.トリオン < sliderValue) {
+      return false;
+    }
+
+    return true; // デフォルトですべて表示
   });
 
   return (

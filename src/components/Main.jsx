@@ -3,7 +3,7 @@ import fetchCharactersData from '../hooks/fetchCharactersData';
 import CharacterCard from './Card/CharacterCard';
 import { ThreeCircles } from 'react-loader-spinner';
 
-export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers, flipTrigger, flipToIndex, sliderValue }) {
+export default function Main({ searchName, triggerNameAndType, filterTriggers, filterPositions, filterOrganizations, filterOthers, flipTrigger, flipToIndex, filterStatuses }) {
   const [charactersData, setCharactersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -140,11 +140,16 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
 
   // ステータスよるフィルタリング
   const filteredCharacters = filteredOthers.filter((character) => {
-    if (character.トリオン < sliderValue) {
-      return false;
-    }
-
-    return true; // デフォルトですべて表示
+    return (
+      character.トリオン >= filterStatuses[0] &&
+      character.攻撃 >= filterStatuses[1] &&
+      character["防御・援護"] >= filterStatuses[2] &&
+      character.機動 >= filterStatuses[3] &&
+      character.技術 >= filterStatuses[4] &&
+      character.射程 >= filterStatuses[5] &&
+      character.指揮 >= filterStatuses[6] &&
+      character.特殊戦術 >= filterStatuses[7]
+    );
   });
 
   return (

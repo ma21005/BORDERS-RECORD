@@ -1,51 +1,77 @@
-import React, { useState } from "react";
+import React from "react";
 
-// const FilterStatus = () => {
-const FilterStatus = ({ setSliderValue }) => {
-  const [localSliderValue, setLocalSliderValue] = useState(0); // Local state for the slider value
+const FilterStatus = ({ filterStatuses, setFilterStatuses }) => {
   const tickValues = [0, 2, 4, 6, 8, 10]; // 目盛りの値
+  const statusLabels = ["トリオン", "攻撃", "防御・援護", "機動", "技術", "射程", "指揮", "特殊戦術"];
 
-  const handleTickClick = (value) => {
-    setLocalSliderValue(value);
-    setSliderValue(value); // クリックされた目盛りの値をスライダーに反映
+  // スライダー値の変更を処理する関数
+  const handleSliderChange = (index, value) => {
+    const newFilterStatuses = [...filterStatuses];
+    newFilterStatuses[index] = value;
+    setFilterStatuses(newFilterStatuses); // App.jsxで管理しているスライダー値を更新
   };
 
-  const handleSliderChange = (event) => {
-    const value = parseInt(event.target.value, 10);
-    setLocalSliderValue(value);
-    setSliderValue(value); // スライダーを動かしたときに値を更新
+  // スライダーの目盛りクリックを処理する関数
+  const handleTickClick = (index, value) => {
+    handleSliderChange(index, value);
+  };
+
+  // スライダーのゲージを塗りつぶす部分のスタイルを計算
+  const getSliderBackground = (value) => {
+    const percentage = (value / 10) * 100; // 最大値10を基準にして割合を計算
+    return `linear-gradient(to right, #166f8f ${percentage}%, #444444 ${percentage}%)`;
   };
 
   return (
     <div className="relative w-full mx-auto">
       <h1 className="mb-6 filter-item">STATUS</h1>
-      <div>
-        <div className="flex">
-          <h2 className="text-lg text-gray-400 font-bold mr-4">トリオン</h2>
-          <h2 className="text-lg text-gray-400">{localSliderValue}以上</h2>
+      {statusLabels.map((label, index) => (
+        <div key={index} className="mb-3">
+          {/* ステータス名とスライダー値 */}
+          <div className="flex justify-between items-center">
+            <h2 className="text-lg text-gray-400 font-bold">{label}</h2>
+            <h2 className="text-lg text-[#166f8f] font-bold">{filterStatuses[index]}以上</h2>
+          </div>
+          {/* スライダー */}
+          <input
+            type="range"
+            min={0}
+            max={10}
+            step={2}
+            value={filterStatuses[index]}
+            onChange={(e) => handleSliderChange(index, parseInt(e.target.value, 10))}
+            style={{
+              background: getSliderBackground(filterStatuses[index]), // 動的にスライダー背景を設定
+            }}
+            className="slider w-full appearance-none h-2 rounded-full outline-none"
+          />
+          {/* スライダーの目盛り */}
+          <div className="flex justify-between">
+            {tickValues.map((value) => (
+              <div
+                key={value}
+                className="flex flex-col items-center cursor-pointer"
+                onClick={() => handleTickClick(index, value)}
+              >
+                <div
+                  className="h-2 w-1"
+                  style={{
+                    backgroundColor: filterStatuses[index] === value ? "#166f8f" : "#444444",
+                  }}
+                />
+                <span
+                  className="text-xl font-bold"
+                  style={{
+                    color: filterStatuses[index] === value ? "#166f8f" : "#444444",
+                  }}
+                >
+                  {value}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-        <input
-          type="range"
-          min={0}
-          max={10}
-          step={2}
-          value={localSliderValue}
-          onChange={handleSliderChange}
-          className="slider w-full appearance-none h-2 bg-[#444444] rounded-full outline-none"
-        />
-        <div className="left-0 right-0 flex justify-between">
-          {tickValues.map((value) => (
-            <div
-              key={value}
-              className="flex flex-col items-center cursor-pointer"
-              onClick={() => handleTickClick(value)}
-            >
-              <div className="h-2 w-1 bg-[#444444]" />
-              <span className="text-xl text-[#166f8f] font-bold">{value}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

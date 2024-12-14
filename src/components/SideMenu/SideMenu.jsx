@@ -1,3 +1,6 @@
+// import StatusSlider from "./StatusSlider";
+import FilterName from "./FilterName";
+
 export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers }) {
   const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
@@ -8,15 +11,6 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
   const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "スポッター", "オペレーター", "オペレーター以外"];
   const organizations = ["BORDER", "アフトクラトル", "ガロプラ"];
   const others = ["サイドエフェクト", "近界民"]; // その他のフィルタリング
-
-  const handleSearch = (event) => {
-    setSearchName(event.target.value); // 検索文字列を更新
-  };
-
-  const handleClear = () => {
-    setSearchName("");
-  };
-
 
   const handleTriggerFilter = (trigger) => {
     setFilterTriggers((prevFilters) => {
@@ -90,24 +84,7 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
 
   return (
     <div className="side-menu-container w-full flex-shrink-0 p-4">
-      <h1 className="filter-item">NAME</h1>
-      <div className="w-4/5 relative">
-        <input
-          type="text"
-          value={searchName}
-          placeholder="キャラクター名を入力"
-          className="w-full border p-2 mb-4 rounded text-black"
-          onChange={handleSearch} // 入力値を処理
-        />
-        {searchName && (
-          <button
-            onClick={handleClear}
-            className="absolute right-1 top-1/3 transform -translate-y-1/2 text-gray-700 hover:text-black w-10 h-10 flex items-center justify-center text-3xl"
-          >
-            ×
-          </button>
-        )}
-      </div>
+      <FilterName searchName={searchName} setSearchName={setSearchName} />
 
       {/* ========= フィルタリング用ボタン（トリガー）========= */}
       <h1 className="filter-item">TRIGGER</h1>
@@ -243,6 +220,8 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
 
       {/* ========= フィルタリング用ボタン（ステータス）========= */}
       <h1 className="filter-item">STATUS</h1>
+
+      {/* <StatusSlider /> */}
     </div>
   );
 }

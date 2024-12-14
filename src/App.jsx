@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SideMenu from "./components/SideMenu";
+import SideMenu from "./components/SideMenu/SideMenu";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import CardFlipButton from "./components/CardFlipButton";

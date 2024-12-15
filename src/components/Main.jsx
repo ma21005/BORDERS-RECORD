@@ -148,7 +148,11 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
       character.技術 >= filterStatuses[4] &&
       character.射程 >= filterStatuses[5] &&
       character.指揮 >= filterStatuses[6] &&
-      character.特殊戦術 >= filterStatuses[7]
+      character.特殊戦術 >= filterStatuses[7] &&
+      character.機器操作 >= filterStatuses[8] &&
+      character.情報分析 >= filterStatuses[9] &&
+      character.並列処理 >= filterStatuses[10] &&
+      character.戦術 >= filterStatuses[11]
     );
   });
 

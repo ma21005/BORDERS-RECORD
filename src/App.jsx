@@ -14,7 +14,7 @@ function App() {
   const [filterPositions, setFilterPositions] = useState(""); // ポジションのフィルタリング条件
   const [filterOrganizations, setFilterOrganizations] = useState(""); // 組織のフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
-  const [filterStatuses, setFilterStatuses] = useState([0, 0, 0, 0, 0, 0, 0, 0]); // ステータスのフィルタリング条件
+  const [filterStatuses, setFilterStatuses] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]); // ステータスのフィルタリング条件
 
   const [flipTrigger, setFlipTrigger] = useState(false); // キャラクターカードをフリップさせるトリガー
   const [flipToIndex, setFlipToIndex] = useState(0); // フリップ先のカードタイプのインデックス

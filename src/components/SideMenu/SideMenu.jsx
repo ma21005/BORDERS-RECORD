@@ -3,10 +3,14 @@ import FilterName from "./FilterName";
 import FilterButtons from "./FilterButtons";
 import FilterStatus from "./FilterStatus";
 
-export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers, filterStatuses, setFilterStatuses,}) {
+export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers, filterStatuses, setFilterStatuses, isSmartPhone}) {
 
   return (
-    <div className="side-menu-container w-full flex-shrink-0 p-4">
+    <div
+      className={`side-menu-container w-full flex-shrink-0 p-4 ${
+        isSmartPhone ? "border-r-2 border-[#166f8f]" : ""
+      }`}
+    >
       {/* ========= 名前をフィルタリングする入力欄 ========= */}
       <FilterName searchName={searchName} setSearchName={setSearchName} />
 
@@ -24,7 +28,7 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
       />
 
       {/* ========= ステータスをフィルタリングするスライダー ========= */}
-      <FilterStatus filterStatuses={filterStatuses} setFilterStatuses={setFilterStatuses} />
+      <FilterStatus filterStatuses={filterStatuses} setFilterStatuses={setFilterStatuses} isSmartPhone={isSmartPhone}/>
     </div>
   );
 }

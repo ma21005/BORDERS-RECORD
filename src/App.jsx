@@ -35,7 +35,7 @@ function App() {
       {open && (
         <aside
           className="fixed flex-shrink-0 overflow-y-auto hidden-scrollbar z-30"
-          style={{ width: '18rem', height: '100vh' }}
+          style={{ width: '22rem', height: '100vh' }}
         >
           <SideMenu
             searchName={searchName}
@@ -51,6 +51,7 @@ function App() {
             setFilterOthers={setFilterOthers}
             filterStatuses={filterStatuses}
             setFilterStatuses={setFilterStatuses}
+            isSmartPhone={true}
           />
         </aside>
       )}
@@ -74,6 +75,7 @@ function App() {
           setFilterOthers={setFilterOthers}
           filterStatuses={filterStatuses}
           setFilterStatuses={setFilterStatuses}
+          isSmartPhone={false}
         />
       </aside>
       {/* メインコンテンツ */}

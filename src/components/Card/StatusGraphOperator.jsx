@@ -18,45 +18,43 @@ const CustomLabel = ({ x, y, payload, data }) => {
   if (payload.value === 'トリオン') {
     column_adjustedY -= 15;
     value_adjustedY -= 12;
-  } else if (payload.value === '攻撃力') {
-    column_adjustedX += 5;
-    column_adjustedY -= 11;
-    value_adjustedX += 7
-    value_adjustedY -= 9;
-  } else if (payload.value === '防御・援護') {
+  } else if (payload.value === '機器操作') {
     column_adjustedX += 10;
-    column_adjustedY -= 21;
+    column_adjustedY -= 23;
     value_adjustedX += 9;
-    value_adjustedY -= 2;
-  } else if (payload.value === '機動') {
+    value_adjustedY -= 5;
+  } else if (payload.value === '情報分析') {
     column_adjustedX += 15;
+    column_adjustedY -= 18;
     value_adjustedX += 15;
-    value_adjustedY += 3;
-  } else if (payload.value === '技術') {
+    value_adjustedY += 1;
+  } else if (payload.value === '並列処理') {
     column_adjustedY += 7;
     value_adjustedY += 10;
-  } else if (payload.value === '射程') {
+  } else if (payload.value === '戦術') {
     column_adjustedX -= 15;
+    column_adjustedY -= 2;
     value_adjustedX -= 15;
-    value_adjustedY += 3;
+    value_adjustedY += 1;
   }  else if (payload.value === '指揮') {
     column_adjustedX += -10;
-    column_adjustedY -= 3;
+    column_adjustedY -= 8;
     value_adjustedX -= 9;
-  } else if (payload.value === '特殊戦術') {
-    column_adjustedX -= 5;
-    column_adjustedY -= 11;
-    value_adjustedX -= 7
-    value_adjustedY -= 9
+    value_adjustedY -= 5;
   }
 
   return (
     <g>
       <text x={column_adjustedX} y={column_adjustedY} textAnchor="middle" fill="white" fontSize={13} fontWeight="bold">
-        {payload.value === '防御・援護' ? (
+        {payload.value === '機器操作' ? (
           <>
-            <tspan x={column_adjustedX} dy="0">防御</tspan>
-            <tspan x={column_adjustedX} dy="1.2em">援護</tspan>
+            <tspan x={column_adjustedX} dy="0">機器</tspan>
+            <tspan x={column_adjustedX} dy="1.2em">操作</tspan>
+          </>
+        ) : payload.value === '情報分析' ? (
+          <>
+            <tspan x={column_adjustedX} dy="0">情報</tspan>
+            <tspan x={column_adjustedX} dy="1.2em">分析</tspan>
           </>
         ) : (
           payload.value
@@ -69,7 +67,7 @@ const CustomLabel = ({ x, y, payload, data }) => {
   );
 };
 
-export default function StatusGraph({ status }) {
+export default function StatusGraphOperator({ status }) {
   // 項目の値が10を超えた場合はグラフの表示範囲が最大値に引っ張られるため、
   // 最大値を10に設定しすることで全キャラクターのステータスグラフの表示範囲を統一させる
   const adjustedStatus = status.map(item => ({
@@ -101,6 +99,7 @@ export default function StatusGraph({ status }) {
             domain={[0, 10]} 
             ticks={[0, 2, 4, 6, 8, 10]} // 目盛りを2刻みに設定
             tick={null} // ルビを非表示
+            angle={90} // 中央から垂直方向に表示
           />
           <Radar
             name="Stats"

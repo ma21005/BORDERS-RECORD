@@ -2,6 +2,7 @@
 
 import CardContainer from "./CardContainer";
 import StatusGraph from "./StatusGraph";
+import StatusGraphOperator from "./StatusGraphOperator";
 
 export default function CharacterStatusCard({ character }) {
   // 受け取ったデータからパラメーター用のステータスを取り出す
@@ -13,8 +14,17 @@ export default function CharacterStatusCard({ character }) {
     { name: "技術", value: character.技術 },
     { name: "射程", value: character.射程 },
     { name: "指揮", value: character.指揮 },
-    { name: "特殊戦術", value: character.特殊戦術 },
+    { name: "特殊戦術", value: character.特殊戦術 }
   ];
+
+  const statusOperator = [
+    { name: "トリオン", value: character.トリオン },
+    { name: "機器操作", value: character.機器操作 },
+    { name: "情報分析", value: character.情報分析 },
+    { name: "並列処理", value: character.並列処理 },
+    { name: "戦術", value: character.戦術 },
+    { name: "指揮", value: character.指揮},
+  ]
 
   return (
     <CardContainer>
@@ -22,7 +32,11 @@ export default function CharacterStatusCard({ character }) {
         <p className="text-lg font-bold text-center text-white">{character.名前}</p>
       </div>
       <div className="h-[85%]">
-        <StatusGraph status={status}/>
+        {character.ポジション !== "オペレーター" ? (
+          <StatusGraph status={status} />
+        ) : (
+          <StatusGraphOperator status={statusOperator}/>
+        )}
       </div>
     </CardContainer>
   );

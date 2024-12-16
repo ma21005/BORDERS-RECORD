@@ -86,7 +86,7 @@ code {
     transform: rotateY(0deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(180deg);
   }
 }
 
@@ -161,7 +161,7 @@ code {
 }
 
 .flip-card {
-  animation: flipCard 0.6s ease-in-out;
+  animation: flipCard 0.3s ease-out;
 }
 
 .character-image-frame {

@@ -14,8 +14,8 @@ const FilterStatus = ({ filterStatuses, setFilterStatuses, isSmartPhone }) => {
   };
 
   // スライダーの目盛りクリックを処理する関数
-  const handleTickClick = (index, value) => {
-    handleSliderChange(index, value);
+  const handleTickClick = (index, value, isOperator = false) => {
+    handleSliderChange(index, value, isOperator);
   };
 
   // スライダーのゲージを塗りつぶす部分のスタイルを計算

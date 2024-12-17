@@ -1,10 +1,11 @@
 // キャラクターカードのトリガー構成画面にあたるコンポーネント
 
 import CardContainer from "./CardContainer";
-import MainTrigger from "../Trigger/MainTrigger";
-import SubTrigger from "../Trigger/SubTrigger";
-import FreeTrigger from "../Trigger/FreeTrigger";
-import Uniquetrigger from "../Trigger/UniqueTrigger";
+import MainTrigger from "./Trigger/MainTrigger"
+import SubTrigger from "./Trigger/SubTrigger";
+import FreeTrigger from "./Trigger/FreeTrigger";
+import Uniquetrigger from "./Trigger/UniqueTrigger";
+import TriggerWithNoData from "./Trigger/TriggerWithNoData";
 
 export default function CharacterTriggerCard({ character }) {
   let mainTrigger = [ character.メイン1, character.メイン2, character.メイン3, character.メイン4 ];
@@ -12,9 +13,12 @@ export default function CharacterTriggerCard({ character }) {
   let uniqueTrigger = [character.黒トリガー, character.特殊トリガー];
   let isReiji = false;
 
-  // 通常トリガーかどうかを判定する
+  // トリガーを何も所持していないかどうか判定する
+  const isAllTriggersEmpty = [...mainTrigger, ...subTrigger, ...uniqueTrigger].every(trigger => trigger === '');
+
+  // 通常トリガーを所持しているかどうか判定する
   const hasNormalTrgger = uniqueTrigger.every(trigger => trigger === '');
-  // 通常トリガーではないトリガーの名前
+  // 通常トリガーではない特殊トリガーの名前
   const uniqueTriggerName = uniqueTrigger.find(trigger => trigger !== '');
 
   if (character.名前 === "木崎 レイジ") {
@@ -29,7 +33,9 @@ export default function CharacterTriggerCard({ character }) {
         <p className="text-lg font-bold text-center text-white">{character.名前}</p>
       </div>
       
-      {hasNormalTrgger ? (
+      {isAllTriggersEmpty ? ( // トリガーを何も所持していない場合
+        <TriggerWithNoData />
+      ) : hasNormalTrgger ? ( // 通常トリガーを所持している場合
         <div className="w-full h-[83%] flex justify-between">
           {/* SUB Trigger */}
           {/* レイジのみ縦スクロール可にする */}
@@ -65,7 +71,7 @@ export default function CharacterTriggerCard({ character }) {
             )}
           </div>
         </div>
-      ) : (
+      ) : ( // 特殊トリガーを所持している場合
         <div className="w-full h-[85%] flex justify-center items-center">
           <div className="trigger-container w-[85%] h-[95%] flex justify-center">
             <Uniquetrigger character={character} uniqueTriggerName={uniqueTriggerName} />

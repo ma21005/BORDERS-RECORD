@@ -199,9 +199,19 @@ code {
   border: solid 2px #166f8f;
 }
 
+.trigger-container-with-no-data {
+  background-color: #090909;
+  border: solid 2px #444444;
+}
+
 .each-trigger-container {
   background-color: #090909;
   border: solid 1px #166f8f;
+}
+
+.each-trigger-container-with-no-data {
+  background-color: #090909;
+  border: solid 1px #444444;
 }
 
 .trigger-type {

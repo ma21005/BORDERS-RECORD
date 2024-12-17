@@ -1,7 +1,7 @@
-import  { getImageName } from "../../hooks/fetchTriggerImageName";
-import  { fetchTriggerType } from "../../hooks/fetchTriggerType";
+import  { getImageName } from "../../../hooks/fetchTriggerImageName";
+import  { fetchTriggerType } from "../../../hooks/fetchTriggerType";
 
-export default function MainTrigger({ trigger }) {
+export default function SubTrigger({ trigger }) {
   const imageName = getImageName(trigger);
   const triggerType = fetchTriggerType(trigger);
 

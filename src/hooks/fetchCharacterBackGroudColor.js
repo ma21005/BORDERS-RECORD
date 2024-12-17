@@ -10,7 +10,7 @@ const backGroudColor = {
   "加古隊" : "#7d3890",
   "三輪隊" : "#534962",
   "片桐隊" : "#f0ede8",
-  "二宮隊" : "#1a181a",
+  "二宮隊" : "#0f0e0f",
   "影浦隊" : "#1e1d1f",
   "弓場隊" : "#f0ede8",
   "王子隊" : "#21202f",
@@ -22,6 +22,8 @@ const backGroudColor = {
   "荒船隊" : "#1b1e23",
   "那須隊" : "#ebeaef",
   "柿崎隊" : "#E17730",
+  "漆間隊" : "#24394a",
+  "甲田隊" : "#f2f2f2",
   "アフトクラトル" : "#3d1a3d",
   "ガロプラ" : "#555243",
 
@@ -29,6 +31,7 @@ const backGroudColor = {
   "木崎 レイジ" : "#303d32",
   "小南 桐絵" : "#7b9b2c",
   "烏丸 京介" : "#054a74",
+  "林藤 ゆり" : "#444444",
 };
 
 export function fetchCharacterBackGroudColor(character) {
@@ -46,5 +49,5 @@ export function fetchCharacterBackGroudColor(character) {
     return backGroudColor[character.名前]
   }
 
-  return backGroudColor[characterTeam] || "gray";
+  return backGroudColor[characterTeam] || "#444444";
 }

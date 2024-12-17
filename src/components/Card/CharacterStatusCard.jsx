@@ -3,6 +3,7 @@
 import CardContainer from "./CardContainer";
 import StatusGraph from "./StatusGraph/StatusGraph";
 import StatusGraphOperator from "./StatusGraph/StatusGraphOperator";
+import StatusGraphWithNoData from "./StatusGraph/StatusGraphWithNoData";
 
 export default function CharacterStatusCard({ character }) {
   // 受け取ったデータからパラメーター用のステータスを取り出す
@@ -26,16 +27,23 @@ export default function CharacterStatusCard({ character }) {
     { name: "指揮", value: character.指揮},
   ]
 
+  // 全ステータスの value が空文字かをチェックする関数
+  const isAllValuesEmpty = (data) => data.every((item) => item.value === "");
+  // 全ステータスが全て空の場合のフラグ
+  const isNoData = isAllValuesEmpty(status) && isAllValuesEmpty(statusOperator);
+
   return (
     <CardContainer>
       <div className="h-[10%] character-name-container mt-2 mb-1">
         <p className="text-lg font-bold text-center text-white">{character.名前}</p>
       </div>
       <div className="h-[85%]">
-        {character.ポジション !== "オペレーター" ? (
+        {isNoData ? (
+          <StatusGraphWithNoData status={status} /> // ステータスが無い場合
+        ) : character.ポジション !== "オペレーター" ? (
           <StatusGraph status={status} />
         ) : (
-          <StatusGraphOperator status={statusOperator}/>
+          <StatusGraphOperator status={statusOperator} /> // オペレーター専用のステータスグラフ
         )}
       </div>
     </CardContainer>

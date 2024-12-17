@@ -70,6 +70,17 @@ export default function StatusGraph({ status }) {
             fill="#e3df68"
             fillOpacity={0.7}
           />
+          <text 
+            x="50%" 
+            y="50%" 
+            textAnchor="middle" 
+            dominantBaseline="middle" 
+            fontSize="28" 
+            fontWeight="bold" 
+            fill="white"
+          >
+            NO DATA
+          </text>
         </RadarChart>
       </ResponsiveContainer>
     </div>

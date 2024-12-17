@@ -1,8 +1,8 @@
 // キャラクターカードのステータス画面にあたるコンポーネント
 
 import CardContainer from "./CardContainer";
-import StatusGraph from "./StatusGraph";
-import StatusGraphOperator from "./StatusGraphOperator";
+import StatusGraph from "./StatusGraph/StatusGraph";
+import StatusGraphOperator from "./StatusGraph/StatusGraphOperator";
 
 export default function CharacterStatusCard({ character }) {
   // 受け取ったデータからパラメーター用のステータスを取り出す

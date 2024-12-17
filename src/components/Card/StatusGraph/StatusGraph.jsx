@@ -91,9 +91,10 @@ export default function StatusGraph({ status }) {
 
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="75%" data={adjustedStatus}>
-          <PolarGrid />
+          <PolarGrid/>
           <PolarAngleAxis 
             dataKey="name"
+            // stroke="#00FF00"
             // tick={<CustomLabel />} // 項目名のカスタムラベル
             tick={(props) => <CustomLabel {...props} data={status} />}
           />

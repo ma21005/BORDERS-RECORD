@@ -6,7 +6,7 @@ const CardFlipButton = ({ handleFlip }) => {
       <button
         onClick={() => handleFlip(0)}
       >
-        <img 
+        <img
           src="https://borders-records.s3.ap-northeast-1.amazonaws.com/button-icons/title.png"
           alt="Title"
           className="card-flid-button"

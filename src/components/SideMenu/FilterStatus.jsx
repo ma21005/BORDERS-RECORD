@@ -1,4 +1,5 @@
 import React from "react";
+import { RiResetLeftFill } from "react-icons/ri";
 
 const FilterStatus = ({ filterStatuses, setFilterStatuses, isSmartPhone }) => {
   const tickValues = [0, 2, 4, 6, 8, 10]; // 目盛りの値
@@ -88,7 +89,19 @@ const FilterStatus = ({ filterStatuses, setFilterStatuses, isSmartPhone }) => {
 
   return (
     <div className="relative w-full mx-auto">
-      <h1 className="mb-6 filter-item">STATUS</h1>
+      <div className="filter-item-container">
+        <h1 className="filter-item-with-reset-button">STATUS</h1>
+        <div
+          onClick={() => setFilterStatuses([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])}
+          style={{
+            cursor: 'pointer',
+          }}
+          className="flex mt-1"
+        >
+          <RiResetLeftFill className="text-xl mr-1 mt-0.5" />
+          <p className="font-bold">RESET</p>
+        </div>
+      </div>
       <div className={`${isSmartPhone ? "w-10/12" : "w-full"}`}>
         <div>
           {renderSliders(statusLabels)}

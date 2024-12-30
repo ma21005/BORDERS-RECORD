@@ -98,7 +98,6 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
           <p className="font-bold">RESET</p>
         </div>
       </div>
-      {/* <h1 className="filter-item">TRIGGER</h1> */}
       <h2 className="text-sm text-gray-400">ATTACK TRIGGER</h2>
       <div className="flex flex-wrap space-x-1 gap-x-3">
         {attackTriggers.map((trigger, index) => (

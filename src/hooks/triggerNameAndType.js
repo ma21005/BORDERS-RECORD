@@ -7,6 +7,7 @@ export const triggerNameAndType = {
     "スコーピオン",
     "スコーピオン(改)",
     "レイガスト",
+    "双月",
   ],
   "GUNNER TRIGGER" : [
     "アステロイド",
@@ -51,6 +52,7 @@ export const triggerNameAndType = {
     "フルアームズ(試作)",
     "タイマー(試作)",
     "テレポーター(試作)",
+    "コネクター(試作)",
     "魔光(試作)",
     "韋駄天(試作)",
   ]

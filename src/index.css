@@ -273,6 +273,20 @@ code {
   margin-bottom: 0.75rem;
 }
 
+.filter-item-with-reset-button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #166f8f;
+}
+
+.filter-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 3px #166f8f;
+  margin-bottom: 0.75rem;
+}
+
 .loading-text {
   font-size: 2.5rem;
   font-weight: bold;

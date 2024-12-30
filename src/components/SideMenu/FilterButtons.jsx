@@ -84,7 +84,18 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
   return (
     <div>
       {/* ========= フィルタリング用ボタン（トリガー）========= */}
-      <h1 className="filter-item">TRIGGER</h1>
+      <div className="filter-item-container">
+        <h1 className="filter-item-with-reset-button">TRIGGER</h1>
+        <div
+          onClick={() => setFilterTriggers([])}
+          style={{
+            cursor: 'pointer',
+          }}
+        >
+          リセット
+        </div>
+      </div>
+      {/* <h1 className="filter-item">TRIGGER</h1> */}
       <h2 className="text-sm text-gray-400">ATTACK TRIGGER</h2>
       <div className="flex flex-wrap space-x-1 gap-x-3">
         {attackTriggers.map((trigger, index) => (

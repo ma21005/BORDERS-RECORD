@@ -1,4 +1,5 @@
 import React from "react";
+import { RiResetLeftFill } from "react-icons/ri";
 
 export default function FilterButtons({ triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers }) {
   const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
@@ -91,8 +92,10 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
           style={{
             cursor: 'pointer',
           }}
+          className="flex mt-1"
         >
-          リセット
+          <RiResetLeftFill className="text-xl mr-1 mt-0.5" />
+          <p className="font-bold">RESET</p>
         </div>
       </div>
       {/* <h1 className="filter-item">TRIGGER</h1> */}

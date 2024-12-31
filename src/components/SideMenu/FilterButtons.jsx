@@ -92,10 +92,10 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
           style={{
             cursor: 'pointer',
           }}
-          className="flex mt-1"
+          className="flex mt-1 text-[#777777] hover:text-white"
         >
-          <RiResetLeftFill className="text-xl mr-1 mt-0.5 text-[#166f8f]" />
-          <p className="font-bold text-[#166f8f]">RESET</p>
+          <RiResetLeftFill className="text-xl mr-1 mt-0.5" />
+          <p className="font-bold">RESET</p>
         </div>
       </div>
       <h2 className="text-sm text-gray-400">ATTACK TRIGGER</h2>
@@ -199,7 +199,7 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
       </div>
 
       {/* ========= フィルタリング用ボタン（組織）========= */}
-      <h1 className="filter-item">ORGANIZATIONS</h1>
+      <h1 className="filter-item">ORGANIZATION</h1>
       <div className="flex flex-wrap gap-x-3">
 
         {organizations.map((organization, index) => (

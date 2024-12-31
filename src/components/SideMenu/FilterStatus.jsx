@@ -98,8 +98,8 @@ const FilterStatus = ({ filterStatuses, setFilterStatuses, isSmartPhone }) => {
           }}
           className="flex mt-1"
         >
-          <RiResetLeftFill className="text-xl mr-1 mt-0.5" />
-          <p className="font-bold">RESET</p>
+          <RiResetLeftFill className="text-xl mr-1 mt-0.5 text-[#166f8f]" />
+          <p className="font-bold text-[#166f8f]">RESET</p>
         </div>
       </div>
       <div className={`${isSmartPhone ? "w-10/12" : "w-full"}`}>

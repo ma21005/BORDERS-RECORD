@@ -94,8 +94,8 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
           }}
           className="flex mt-1"
         >
-          <RiResetLeftFill className="text-xl mr-1 mt-0.5" />
-          <p className="font-bold">RESET</p>
+          <RiResetLeftFill className="text-xl mr-1 mt-0.5 text-[#166f8f]" />
+          <p className="font-bold text-[#166f8f]">RESET</p>
         </div>
       </div>
       <h2 className="text-sm text-gray-400">ATTACK TRIGGER</h2>

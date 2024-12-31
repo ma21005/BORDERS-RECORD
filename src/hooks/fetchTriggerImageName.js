@@ -12,10 +12,14 @@ export function getImageName(trigger) {
     return "突撃銃";
   } else if (trigger.includes("機関砲")) {
     return "機関砲";
+  } else if (trigger.includes("擲弾銃")) {
+    return "擲弾銃"
   } else if (trigger.includes("槍")) {
     return "弧月_槍";
   } else if (trigger.includes("スコーピオン(改)")) {
     return "スコーピオン";
+  } else if (trigger.includes("ハウンド(改)")) {
+    return "ハウンド";
   }
 
   return optionTrigger.includes(trigger) ? "オプション" : trigger;

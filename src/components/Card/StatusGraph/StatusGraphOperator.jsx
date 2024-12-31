@@ -75,16 +75,18 @@ export default function StatusGraphOperator({ status }) {
     value: Math.min(item.value, 10)
   }));
 
-  // ステータスの合計値を計算
-  let total = status.reduce((sum, item) => sum + item.value, 0);
+  // ステータスの合計値を計算（オペレーターなのでトリオン値は加算しない）
+  let total = status.reduce((sum, item) => {
+    return item.name !== 'トリオン' ? sum + item.value : sum;
+  }, 0);
   if (total === '0') {
     total = '-';
   }
 
   return (
     <div className="w-full h-full">
-      <div className="text-lg absolute bottom-2 right-2 px-2 text-white total-status-container">
-        <p>TOTAL：{total}</p>
+      <div className="text-base absolute bottom-2 right-2 px-2 text-white total-status-container">
+        <p>OP TOTAL：{total}</p>
       </div>
 
       <ResponsiveContainer width="100%" height="100%">

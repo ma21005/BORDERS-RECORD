@@ -14,6 +14,8 @@ export function getImageName(trigger) {
     return "機関砲";
   } else if (trigger.includes("擲弾銃")) {
     return "擲弾銃"
+  } else if (trigger.includes("散弾銃")) {
+    return "散弾銃"
   } else if (trigger.includes("槍")) {
     return "弧月_槍";
   } else if (trigger.includes("スコーピオン(改)")) {

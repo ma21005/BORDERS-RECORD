@@ -17,14 +17,14 @@ export default function CharacterCard({ character, flipTrigger, flipToIndex  }) 
   const [isFlipping, setIsFlipping] = useState(false); // フリップアニメーション中かどうか
 
   useEffect(() => {
-    if (flipTrigger) {
+    if (currentCardIndex !== flipToIndex && flipTrigger) {
       setIsFlipping(true);
       setTimeout(() => {
         setCurrentCardIndex(flipToIndex);
         setIsFlipping(false);
       }, 300); // 300msのフリップアニメーション
     }
-  }, [flipTrigger, flipToIndex]);
+  }, [currentCardIndex, flipTrigger, flipToIndex]);
 
   const handleCardFlip = () => {
     setIsFlipping(true);

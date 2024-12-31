@@ -9,8 +9,11 @@ export default function UniqueTrigger({ character, uniqueTriggerName }) {
         alt={`${uniqueTriggerName}`}
         className="character-image-frame image-protect object-cover w-full h-auto"
       />
-      <div className="absolute left-1/2 transform -translate-x-1/2 text-center text-white">
+      <div className="absolute flex justify-center items-center w-full text-white">
         <p className="text-2xl font-bold">{uniqueTriggerName}</p>
+        {character.トリガーフリガナ && (
+          <p className="text-xs font-bold ml-2">({character.トリガーフリガナ})</p>
+        )}
       </div>
     </div>
   );

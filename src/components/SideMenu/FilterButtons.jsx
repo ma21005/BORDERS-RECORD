@@ -1,7 +1,7 @@
 import React from "react";
 import { RiResetLeftFill } from "react-icons/ri";
 
-export default function FilterButtons({ triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers }) {
+export default function FilterButtons({ triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterBloodTypes, setFilterBloodTypes, filterOthers, setFilterOthers }) {
   const attackTriggers = triggerNameAndType["ATTACK TRIGGER"];
   const gunnerTriggers = triggerNameAndType["GUNNER TRIGGER"];
   const sniperTriggers = triggerNameAndType["SNIPER TRIGGER"];
@@ -10,6 +10,7 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
   const optionTriggers = triggerNameAndType["OPTION TRIGGER"];
   const positions = ["アタッカー", "シューター", "ガンナー", "スナイパー", "オールラウンダー", "トラッパー", "スポッター", "オペレーター", "オペレーター以外"];
   const organizations = ["BORDER", "アフトクラトル", "ガロプラ"];
+  const bloodTypes = ["A", "B", "O", "AB", "不明"];
   const others = ["サイドエフェクト", "近界民"]; // その他のフィルタリング
 
   const handleTriggerFilter = (trigger) => {
@@ -46,6 +47,12 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
     );
   };
 
+  const handleBloodTypeFilter = (bloodType) => {
+    setFilterBloodTypes((prevBloodType) =>
+      prevBloodType === bloodType ? "" : bloodType // 同じ血液型を選択した場合は解除
+    );
+  };
+
   const handleOtherFilter = (filter) => {
     setFilterOthers((prevFilters) => {
       if (prevFilters.includes(filter)) {
@@ -72,6 +79,12 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
 
   const getOrganizationButtonClass = (organization) => {
     return filterOrganizations.includes(organization)
+      ? "bg-[#166f8f] text-white p-2 rounded mb-4"
+      : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]";
+  };
+
+  const getBloodTypeButtonClass = (bloodType) => {
+    return filterBloodTypes === bloodType
       ? "bg-[#166f8f] text-white p-2 rounded mb-4"
       : "bg-[#444444] text-white p-2 rounded mb-4 hover:bg-[#777777]";
   };
@@ -209,6 +222,21 @@ export default function FilterButtons({ triggerNameAndType, filterTriggers, setF
             onClick={() => handleOrganizationFilter(organization)}
           >
             {organization}
+          </button>
+        ))}
+      </div>
+
+      {/* ========= フィルタリング用ボタン（血液型）========= */}
+      <h1 className="filter-item">BLOOD TYPE</h1>
+      <div className="flex flex-wrap gap-x-3">
+
+        {bloodTypes.map((bloodType, index) => (
+          <button
+            key={`blood-type-${index}`}
+            className={`${getBloodTypeButtonClass(bloodType)} rounded-xl`}
+            onClick={() => handleBloodTypeFilter(bloodType)}
+          >
+            {bloodType}
           </button>
         ))}
       </div>

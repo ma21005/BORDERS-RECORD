@@ -32,7 +32,6 @@ const backGroudColor = {
   "木崎 レイジ" : "#303d32",
   "小南 桐絵" : "#7b9b2c",
   "烏丸 京介" : "#054a74",
-  "林藤 ゆり" : "#444444",
 };
 
 export function fetchCharacterBackGroudColor(character) {
@@ -43,14 +42,11 @@ export function fetchCharacterBackGroudColor(character) {
   } else if (characterTeam === '-') {
     if (character.組織 === 'アフトクラトル' || character.組織 === 'ガロプラ') {
       return backGroudColor[character.組織]
-    } else if (character.組織 === 'BORDER') {
-      return "#666666"
     }
-    return backGroudColor[character.名前]
-
+    return backGroudColor[character.名前] || "#888888";
   } else if (characterTeam === '玉狛第一') { // 玉狛第一はキャラごとに指定
     return backGroudColor[character.名前]
   }
 
-  return backGroudColor[characterTeam] || "#666666";
+  return backGroudColor[characterTeam] || "#888888";
 }

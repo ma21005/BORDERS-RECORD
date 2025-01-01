@@ -3,7 +3,7 @@ import FilterName from "./FilterName";
 import FilterButtons from "./FilterButtons";
 import FilterStatus from "./FilterStatus";
 
-export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterOthers, setFilterOthers, filterStatuses, setFilterStatuses, isSmartPhone}) {
+export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterBloodTypes, setFilterBloodTypes, filterOthers, setFilterOthers, filterStatuses, setFilterStatuses, isSmartPhone}) {
 
   return (
     <div
@@ -23,6 +23,8 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
         setFilterPositions={setFilterPositions}
         filterOrganizations={filterOrganizations}
         setFilterOrganizations={setFilterOrganizations}
+        filterBloodTypes={filterBloodTypes}
+        setFilterBloodTypes={setFilterBloodTypes}
         filterOthers={filterOthers}
         setFilterOthers={setFilterOthers}
       />

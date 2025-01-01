@@ -13,6 +13,7 @@ function App() {
   const [filterTriggers, setFilterTriggers] = useState([]); // トリガーのフィルタリング条件（複数指定可なので配列）
   const [filterPositions, setFilterPositions] = useState(""); // ポジションのフィルタリング条件
   const [filterOrganizations, setFilterOrganizations] = useState(""); // 組織のフィルタリング条件
+  const [filterBloodTypes, setFilterBloodTypes] = useState(""); // 血液型のフィルタリング条件
   const [filterOthers, setFilterOthers] = useState([]); // その他のフィルタリング条件（複数指定可なので配列）
   const [filterStatuses, setFilterStatuses] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]); // ステータスのフィルタリング条件
 
@@ -47,6 +48,8 @@ function App() {
             setFilterPositions={setFilterPositions}
             filterOrganizations={filterOrganizations}
             setFilterOrganizations={setFilterOrganizations}
+            filterBloodTypes={filterBloodTypes}
+            setFilterBloodTypes={setFilterBloodTypes}
             filterOthers={filterOthers}
             setFilterOthers={setFilterOthers}
             filterStatuses={filterStatuses}
@@ -71,6 +74,8 @@ function App() {
           setFilterPositions={setFilterPositions}
           filterOrganizations={filterOrganizations}
           setFilterOrganizations={setFilterOrganizations}
+          filterBloodTypes={filterBloodTypes}
+          setFilterBloodTypes={setFilterBloodTypes}
           filterOthers={filterOthers}
           setFilterOthers={setFilterOthers}
           filterStatuses={filterStatuses}
@@ -92,6 +97,7 @@ function App() {
             filterTriggers={filterTriggers}
             filterPositions={filterPositions}
             filterOrganizations={filterOrganizations}
+            filterBloodTypes={filterBloodTypes}
             filterOthers={filterOthers}
             flipTrigger={flipTrigger}
             flipToIndex={flipToIndex}

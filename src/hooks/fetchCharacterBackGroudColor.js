@@ -23,6 +23,7 @@ const backGroudColor = {
   "那須隊" : "#ebeaef",
   "柿崎隊" : "#E17730",
   "漆間隊" : "#24394a",
+  "海老名隊" : "#bb6d61",
   "甲田隊" : "#f2f2f2",
   "アフトクラトル" : "#3d1a3d",
   "ガロプラ" : "#555243",
@@ -42,6 +43,8 @@ export function fetchCharacterBackGroudColor(character) {
   } else if (characterTeam === '-') {
     if (character.組織 === 'アフトクラトル' || character.組織 === 'ガロプラ') {
       return backGroudColor[character.組織]
+    } else if (character.組織 === 'BORDER') {
+      return "#666666"
     }
     return backGroudColor[character.名前]
 
@@ -49,5 +52,5 @@ export function fetchCharacterBackGroudColor(character) {
     return backGroudColor[character.名前]
   }
 
-  return backGroudColor[characterTeam] || "#444444";
+  return backGroudColor[characterTeam] || "#666666";
 }

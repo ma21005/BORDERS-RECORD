@@ -7,18 +7,19 @@ import CharacterComment from './CharacterComment';
 
 export default function CharacterTitleCard({ character }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isDefaultImage, setIsDefaultImage] = useState(false);
 
   const characterBackGroudColor = fetchCharacterBackGroudColor(character);
 
-  let imageName = character.名前
+  let imageName = character.名前;
   if (character.黒トリガー && character.名前 === '空閑 遊真') {
-    imageName = '空閑 遊真_2'
+    imageName = '空閑 遊真_2';
   } else if (character.黒トリガー && character.名前 === '迅 悠一') {
-    imageName = '迅 悠一_2'
+    imageName = '迅 悠一_2';
   } else if (character.黒トリガー && character.名前 === "天羽 月彦") {
     imageName = "天羽 月彦_2";
   } else if (character.特殊トリガー && character.名前 === 'ヒュース') {
-    imageName = 'ヒュース_2'
+    imageName = 'ヒュース_2';
   }
 
   return (
@@ -28,14 +29,18 @@ export default function CharacterTitleCard({ character }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {isHovered ? (
-          <CharacterComment character={character}/>
+        {isHovered && !isDefaultImage ? (
+          <CharacterComment character={character} />
         ) : (
           <img
             src={`https://borders-records.s3.ap-northeast-1.amazonaws.com/characters/${imageName}.png`}
             alt={`${character.名前}`}
             style={{ backgroundColor: characterBackGroudColor }}
             className="image-protect object-cover w-full h-full"
+            onError={(e) => {
+              e.target.src = 'https://borders-records.s3.ap-northeast-1.amazonaws.com/characters/no-image.png';
+              setIsDefaultImage(true);
+            }}
           />
         )}
       </div>

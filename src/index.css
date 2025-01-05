@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Shippori+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 /* スクロールバーを非表示にするクラス */
 @layer utilities {
@@ -93,6 +94,13 @@ code {
 .side-menu-container {
   background-color: #090909;
   color: white;
+}
+
+.side-menu-title {
+  font-family: "Orbitron", serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .header-container {
@@ -266,6 +274,7 @@ code {
 }
 
 .filter-item {
+  font-family: "Orbitron", serif;
   font-size: 1.5rem;
   font-weight: bold;
   color: #166f8f;
@@ -274,6 +283,7 @@ code {
 }
 
 .filter-item-with-reset-button {
+  font-family: "Orbitron", serif;
   font-size: 1.5rem;
   font-weight: bold;
   color: #166f8f;

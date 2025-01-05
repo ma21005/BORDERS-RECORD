@@ -11,6 +11,7 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
         isSmartPhone ? "border-r-2 border-[#166f8f]" : ""
       }`}
     >
+      <p className="side-menu-title">BORDER'S RECORD</p>
       {/* ========= 名前をフィルタリングする入力欄 ========= */}
       <FilterName searchName={searchName} setSearchName={setSearchName} />
 

@@ -302,3 +302,16 @@ code {
   font-weight: bold;
   color: #166f8f;
 }
+
+.info-container {
+  --background-color: #090909;
+  --line-color: #222222;
+
+  border: 2px solid #166f8f;
+  box-shadow: 10px 10px 7px 0px rgba(0, 0, 0, 0.73);
+  background:
+    linear-gradient(135deg, var(--background-color) 10px, var(--line-color) 11px, var(--line-color) 12px, transparent 12px, transparent 34px, var(--line-color) 34px, var(--line-color) 35px, transparent 35px),
+    linear-gradient(225deg, var(--background-color) 10px, var(--line-color) 11px, var(--line-color) 12px, transparent 12px, transparent 34px, var(--line-color) 34px, var(--line-color) 35px, transparent 35px) 0 32px;
+  background-size: 32px 64px;
+  background-color: var(--background-color);
+}

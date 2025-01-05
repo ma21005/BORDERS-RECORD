@@ -15,6 +15,8 @@ export default function CharacterTitleCard({ character }) {
     imageName = '空閑 遊真_2'
   } else if (character.黒トリガー && character.名前 === '迅 悠一') {
     imageName = '迅 悠一_2'
+  } else if (character.黒トリガー && character.名前 === "天羽 月彦") {
+    imageName = "天羽 月彦_2";
   } else if (character.特殊トリガー && character.名前 === 'ヒュース') {
     imageName = 'ヒュース_2'
   }

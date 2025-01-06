@@ -9,7 +9,7 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
 
   return (
     <div
-      className={`side-menu-container w-full flex-shrink-0 p-4 ${
+      className={`side-menu-container w-full flex-shrink-0 p-4 pb-28 ${
         isSmartPhone ? "border-r-2 border-[#166f8f]" : ""
       }`}
     >

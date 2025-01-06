@@ -11,7 +11,7 @@ export default function Header({ setOpen }) {
         <div className="w-8 sm:w-10 h-0.5 bg-white"></div> {/* 下の線 */}
       </button>
 
-      <p className="text-lg text-center">BORDERS RECORD</p>
+      <p className="header-title ml-6">BORDER'S RECORD</p>
     </header>
   );
 }

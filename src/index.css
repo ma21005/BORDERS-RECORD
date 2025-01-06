@@ -114,6 +114,12 @@ code {
   color: white;
 }
 
+.header-title {
+  font-family: "Orbitron", serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 .button-container {
   position: fixed;
   top: 92%;

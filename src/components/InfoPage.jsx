@@ -1,4 +1,5 @@
 import React from "react";
+import LogoX from "../images/x-logo-white.png";
 import { useNavigate } from 'react-router-dom';
 
 const InfoPage = () => {
@@ -6,19 +7,49 @@ const InfoPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center overflow-hidden main-container">
-      <div className="info-container rounded-xl w-10/12 h-4/6 lg:w-7/12 lg:h-4/6 text-white">
-        <p>当サイトは個人による制作・運営の非公式ファンサイトであり、ワールドトリガーの魅力をより多くの方に知ってもらうことを目的として製作しています。</p>
-        <p>当サイトで使用している画像の著作権・肖像権等は各権利者に帰属いたします。</p>
-        <p>これらの画像は純粋な応援の目的のみに使用しておりますが、万一～にて問題があるとご判断された場合は、ご連絡いただき次第速やかに対処させていただきます。</p>
-        <p>当サイトに掲載されている情報は正確性について万全を期しておりますが、情報の誤りがある場合がありますので予めご了承ください。</p>
-        <p>​また、ご意見/ご要望などがあれば以下のフォームか、メールアドレスまで送信よろしくお願いします。</p>
+      <div className="info-container rounded-xl w-10/12 min-h-0 lg:w-7/12 text-white overflow-auto pb-8">
+        <div className="character-name-container mt-4 lg:mt-8 mb-4 lg:mb-12">
+          <h1 className="text-4xl font-bold text-center text-white my-3">当サイトについて</h1>
+        </div>
+        <div className="pr-4 pl-4 lg:pr-12 lg:pl-12 text-lg font-bold">
+          <p className="my-3">当サイトは、個人が制作・運営する非公式のファンサイトであり、ワールドトリガーの魅力をより多くの方に知っていただくことを目的としております。</p>
+          <p className="my-3">サイト内で使用している画像の著作権および肖像権等は、すべて各権利者に帰属します。</p>
+          <p className="my-3">これらの画像は、純粋に作品を応援する目的で使用しておりますが、万一関係者様にて問題があるとご判断される場合は、ご連絡いただき次第、迅速に対処いたします。</p>
+          <p className="my-3">ご意見・ご要望・記載ミス等がございましたら、以下のSNSまたはメールアドレスまでお気軽にご連絡ください。</p>
+        </div>
 
-        <button
-          onClick={() => navigate('/')}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          ホームに戻る
-        </button>
+        <div className="mt-4 lg:mt-8 lg:mt-14 flex flex-col items-center justify-center space-y-4 lg:flex-row lg:space-y-0 lg:space-x-24">
+          <a
+            href="https://x.com/GOTCHA_005"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <img
+              src={LogoX}
+              alt="X Logo"
+              className="w-8 h-8 lg:w-12 lg:h-12 hover:opacity-80"
+            />
+          </a>
+
+          <a href="mailto:example@example.com" className="text-[#166f8f] hover:underline text-lg lg:text-2xl font-bold">
+            example@example.com
+          </a>
+        </div>
+
+
+        <div className="flex justify-center mt-4 lg:mt-12">
+          <button
+            onClick={() => navigate('/')}
+            className="relative z-0 h-14 lg:h-16 rounded-full bg-[#166f8f] px-6 text-neutral-50
+                  after:absolute after:left-0 after:top-0 after:-z-10 after:h-full
+                  after:w-full after:rounded-full after:bg-[#166f8f]
+                  hover:after:scale-x-125 hover:after:scale-y-150 hover:after:opacity-0
+                  hover:after:transition hover:after:duration-500"
+          >
+            <span className="back-button-text my-8 text-xl lg:text-3xl">BACK</span>
+          </button>
+        </div>
       </div>
     </div>
   );

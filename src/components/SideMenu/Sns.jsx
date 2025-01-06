@@ -7,7 +7,7 @@ export default function Sns() {
     <div>
       <h1 className="filter-item">SNS</h1>
       <a
-        href="https://x.com/GOTCHA_0513"
+        href="https://x.com/GOTCHA_005"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block"

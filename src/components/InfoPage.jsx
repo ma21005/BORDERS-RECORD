@@ -7,9 +7,9 @@ const InfoPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center overflow-hidden main-container">
-      <div className="info-container rounded-xl w-10/12 min-h-0 lg:w-7/12 text-white overflow-auto pb-8">
-        <div className="character-name-container mt-4 lg:mt-8 mb-4 lg:mb-12">
-          <h1 className="text-4xl font-bold text-center text-white my-3">当サイトについて</h1>
+      <div className="info-container rounded-xl w-10/12 lg:w-7/12 text-white max-h-[90vh] overflow-y-auto">
+        <div className="character-name-container mt-8 mb-4 lg:mb-12">
+          <h1 className="text-2xl lg:text-4xl font-bold text-center text-white my-3">当サイトについて</h1>
         </div>
         <div className="pr-4 pl-4 lg:pr-12 lg:pl-12 text-lg font-bold">
           <p className="my-3">当サイトは、個人が制作・運営する非公式のファンサイトであり、ワールドトリガーの魅力をより多くの方に知っていただくことを目的としております。</p>
@@ -18,7 +18,7 @@ const InfoPage = () => {
           <p className="my-3">ご意見・ご要望・記載ミス等がございましたら、以下のSNSまたはメールアドレスまでお気軽にご連絡ください。</p>
         </div>
 
-        <div className="mt-4 lg:mt-8 lg:mt-14 flex flex-col items-center justify-center space-y-4 lg:flex-row lg:space-y-0 lg:space-x-24">
+        <div className="mt-4 lg:mt-8 flex flex-col items-center justify-center space-y-4 lg:flex-row lg:space-y-0 lg:space-x-24">
           <a
             href="https://x.com/GOTCHA_005"
             target="_blank"
@@ -38,7 +38,7 @@ const InfoPage = () => {
         </div>
 
 
-        <div className="flex justify-center mt-4 lg:mt-12">
+        <div className="flex justify-center mt-8 lg:mt-20 mb-8">
           <button
             onClick={() => navigate('/')}
             className="relative z-0 h-14 lg:h-16 rounded-full bg-[#166f8f] px-6 text-neutral-50

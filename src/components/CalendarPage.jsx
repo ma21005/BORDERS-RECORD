@@ -59,7 +59,7 @@ const CalendarPage = () => {
   return (
     <div className="h-screen flex items-center justify-center overflow-hidden main-container">
       <div className="info-container rounded-xl w-10/12 lg:w-7/12 text-white max-h-[90vh] overflow-y-auto tems-center justify-center p-8">
-        <div className="min-w-[500px] max-w-full overflow-x-auto">
+        <div className="min-w-[550px] max-w-full overflow-x-auto">
           <FullCalendar
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"

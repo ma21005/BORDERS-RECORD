@@ -59,29 +59,27 @@ const CalendarPage = () => {
   return (
     <div className="h-screen flex items-center justify-center overflow-hidden main-container">
       <div className="info-container rounded-xl w-10/12 lg:w-7/12 text-white max-h-[90vh] overflow-y-auto tems-center justify-center p-8">
-
-      <div>
-      {console.log(charactersData)}
-        <FullCalendar
-          plugins={[dayGridPlugin]}
-          initialView="dayGridMonth"
-          locales={[jaLocale]}
-          locale='ja'
-          contentHeight={'auto'}
-          dayCellContent={(info) => {
-            return info.date.getDate(); // 各日付を数字だけ表示させる
-          }}
-          buttonText={{
-            today: "Today", // ボタンのテキストを 今日 → Today に変更
-          }}
-          titleFormat={{ year: "numeric", month: "2-digit" }} // ヘッダーを2025/01の表示にする
-          events={events} // 各キャラクターの誕生日をカレンダーに表示
-          validRange={{
-            start: '2025-01-01', // 開始日を2025年1月1日に設定
-            end: '2025-12-31',   // 終了日を2025年12月31日に設定
-          }}
-        />
-      </div>
+        <div className="min-w-[500px] max-w-full overflow-x-auto">
+          <FullCalendar
+            plugins={[dayGridPlugin]}
+            initialView="dayGridMonth"
+            locales={[jaLocale]}
+            locale='ja'
+            contentHeight={'auto'}
+            dayCellContent={(info) => {
+              return info.date.getDate(); // 各日付を数字だけ表示させる
+            }}
+            buttonText={{
+              today: "Today", // ボタンのテキストを 今日 → Today に変更
+            }}
+            titleFormat={{ year: "numeric", month: "2-digit" }} // ヘッダーを2025/01の表示にする
+            events={events} // 各キャラクターの誕生日をカレンダーに表示
+            validRange={{
+              start: '2025-01-01', // 開始日を2025年1月1日に設定
+              end: '2025-12-31',   // 終了日を2025年12月31日に設定
+            }}
+          />
+        </div>
 
         <div className="flex justify-center mt-8 lg:mt-12 mb-4">
           <button

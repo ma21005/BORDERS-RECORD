@@ -27,7 +27,7 @@ export default function CharacterDetailCard({ character }) {
     { label: "星座", value: character.星座 },
     { label: "職業", value: character.職業 },
     { label: "好きなもの", value: character.好きなもの },
-    { label: "サイドエフェクト", value: character.サイドエフェクト },
+    ...(character.サイドエフェクト ? [{ label: "サイドエフェクト", value: character.サイドエフェクト }] : []),
   ];
 
   return (

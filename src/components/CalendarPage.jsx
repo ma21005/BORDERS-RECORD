@@ -11,7 +11,7 @@ const CalendarPage = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // 各キャラクターの名前と誕生日を組み合わせたデータを作成（2024年～2026年）
+  // 各キャラクターの名前と誕生日を組み合わせたデータを作成
   const events = Array.from(
     // new Setを使って重複したデータを削除
     // 黒トリガーと通常トリガーの両方を持つキャラクターは同じデータが2つできるため
@@ -21,9 +21,8 @@ const CalendarPage = () => {
         const birthday = new Date(character.誕生日);
         const month = String(birthday.getMonth() + 1).padStart(2, '0');
         const day = String(birthday.getDate()).padStart(2, '0');
-  
-        // 2024～2026年のイベントを生成
-        return [2024, 2025, 2026].map((year) => JSON.stringify({
+
+        return [2025].map((year) => JSON.stringify({
           title: character.名前,
           start: `${year}-${month}-${day}`,
           color: "#166f8f",
@@ -77,6 +76,10 @@ const CalendarPage = () => {
           }}
           titleFormat={{ year: "numeric", month: "2-digit" }} // ヘッダーを2025/01の表示にする
           events={events} // 各キャラクターの誕生日をカレンダーに表示
+          validRange={{
+            start: '2025-01-01', // 開始日を2025年1月1日に設定
+            end: '2025-12-31',   // 終了日を2025年12月31日に設定
+          }}
         />
       </div>
 

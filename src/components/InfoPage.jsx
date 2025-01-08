@@ -32,8 +32,8 @@ const InfoPage = () => {
             />
           </a>
 
-          <a href="mailto:example@example.com" className="text-[#166f8f] hover:underline text-lg lg:text-2xl font-bold">
-            example@example.com
+          <a href="mailto:x1nano0513@gmail.com" className="text-[#166f8f] hover:underline text-lg lg:text-2xl font-bold">
+            x1nano0513@gmail.com
           </a>
         </div>
 

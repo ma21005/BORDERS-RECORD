@@ -2,8 +2,9 @@
 import FilterName from "./FilterName";
 import FilterButtons from "./FilterButtons";
 import FilterStatus from "./FilterStatus";
-import Info from "./Info"
-import Sns from "./Sns"
+import Calendar from "./Calendar";
+import Info from "./Info";
+import Sns from "./Sns";
 
 export default function SideMenu({ searchName, setSearchName, triggerNameAndType, filterTriggers, setFilterTriggers, filterPositions, setFilterPositions, filterOrganizations, setFilterOrganizations, filterBloodTypes, setFilterBloodTypes, filterOthers, setFilterOthers, filterStatuses, setFilterStatuses, isSmartPhone}) {
 
@@ -34,6 +35,8 @@ export default function SideMenu({ searchName, setSearchName, triggerNameAndType
 
       {/* ========= ステータスをフィルタリングするスライダー ========= */}
       <FilterStatus filterStatuses={filterStatuses} setFilterStatuses={setFilterStatuses} isSmartPhone={isSmartPhone}/>
+
+      <Calendar />
 
       <Info />
 

@@ -340,3 +340,33 @@ code {
   font-family: "Orbitron", serif;
   font-weight: bold;
 }
+
+
+/* =============== 誕生日カレンダーの曜日の色をカスタマイズ =============== */
+
+/* XXXX年X月の文字スタイル */
+.fc-toolbar-title {
+  font-family: "Orbitron", serif;
+}
+/* 日付の文字スタイル */
+.fc-daygrid-day-number {
+  font-family: "Orbitron", serif;
+}
+/* 当月以外の日 */
+.fc-day-other .fc-daygrid-day-top,
+.fc-day-other .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.fc-day-other .fc-list-day-cushion {
+  color: #999999;
+}
+/* 土曜日 */
+.fc-day-sat .fc-daygrid-day-top,
+.fc-day-sat .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.fc-day-sat .fc-list-day-cushion {
+  color: #4169e1;
+}
+/* 日曜日 */
+.fc-day-sun .fc-daygrid-day-top,
+.fc-day-sun .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.fc-day-sun .fc-list-day-cushion {
+  color: #f04844;
+}

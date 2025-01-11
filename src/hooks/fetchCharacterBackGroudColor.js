@@ -32,6 +32,7 @@ const backGroudColor = {
   "木崎 レイジ" : "#303d32",
   "小南 桐絵" : "#7b9b2c",
   "烏丸 京介" : "#054a74",
+  "林藤 ゆり" : "#888888",
 };
 
 export function fetchCharacterBackGroudColor(character) {

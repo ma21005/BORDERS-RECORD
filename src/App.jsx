@@ -36,7 +36,7 @@ function App() {
       {open && (
         <aside
           className="fixed flex-shrink-0 overflow-y-auto hidden-scrollbar z-30"
-          style={{ width: '22rem', height: '100vh' }}
+          style={{ width: '21rem', height: '100vh' }}
         >
           <SideMenu
             searchName={searchName}

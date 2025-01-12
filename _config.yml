@@ -1,2 +1,10 @@
+title: BORDERS RECORD
+description: ワールドトリガーの非公式キャラクター紹介サイト
+url: "https://borders-record.com"
+author:
+  name: サイト運営者
+  email: x1nano0513@gmail.com
+keywords: ワールドトリガー, BORDERS RECORD, ボダレコ, ボーダーズレコード, キャラクター紹介, ファンサイト
+
 plugins:
   - jekyll-sitemap

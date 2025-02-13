@@ -60,10 +60,7 @@ function App() {
       )}
 
       {/* サイドメニュー（デスクトップ用） */}
-      <aside
-        className="hidden lg:block flex-shrink-0 overflow-y-auto"
-        style={{ width: '28rem' }}
-      >
+      <aside className="hidden lg:block flex-shrink-0 overflow-y-auto w-96 2xl:w-[28rem]" >
         <SideMenu
           searchName={searchName}
           setSearchName={setSearchName}

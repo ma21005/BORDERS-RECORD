@@ -168,7 +168,7 @@ export default function Main({ searchName, triggerNameAndType, filterTriggers, f
   return (
     <div className='mt-4 lg:mt-8 p-2 pb-32'>
       <div className='flex justify-center'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 p-2'>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 min-[1500px]:grid-cols-3 min-[1781px]:grid-cols-4 gap-2 p-2">
           {filteredCharacters.map((character, index) => (
             <div key={index} className='w-80 h-80'>
               <CharacterCard

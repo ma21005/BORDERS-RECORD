@@ -1,1 +1,1 @@
-### create-react-app サンプル
+https://borders-record.com/
